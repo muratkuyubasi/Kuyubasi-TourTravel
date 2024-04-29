@@ -1,0 +1,80 @@
+		<!-- Breadscrumb -->
+		<div class="breadcrumb-bar">
+			<div class="container">
+				<div class="row align-items-center text-center">
+		    		<div class="col-md-12 col-12">
+			    	    <h2 class="breadcrumb-title">Tur Talebi </h2>
+				    	<!-- <nav aria-label="breadcrumb" class="page-breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a [routerLink]="routes.home"  >Home</a></li>
+								<li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Pricing Plan</li>
+							</ol>
+						</nav>							 -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Breadscrumb -->		     	
+		
+		<!-- Pricing Plan -->
+		<section class="contact-section">
+			<div class="container">
+				<div class="contact-info-area">
+					
+				</div>
+				<div class="form-info-area" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.5">
+					<div class="row">
+						<div class="col-lg-6">
+							<img src="assets/img/ZSU_Tur_Talebi_614x592.jpg" class="img-fluid" alt="Contact">
+						</div>
+						<div class="col-lg-6">
+							<form id="contactForm" [formGroup]="form"  (ngSubmit)="submitForm()">
+								<div class="row">
+									<h1 style="font-size: 25px;">Keşif rotanızı belirlerken büyük heyecan duyuyoruz. Bu rotanın kaşiflerinden heyecanımıza ortak olacak geri bildirimleri almak için sabırsızlanıyoruz! </h1>
+									<div class="col-md-12"> 
+										<div class="form-group">
+											<label>Adınız <span class="text-danger">*</span></label>
+											<input name="firstName" formControlName="firstName" id="name"   type="text" class="form-control" placeholder="">
+										</div>
+									</div>
+									<div class="col-md-12"> 
+										<div class="form-group">
+											<label>Soyadınız <span class="text-danger">*</span></label>
+											<input type="text"  name="lastName" formControlName="lastName" id="name" class="form-control" placeholder="">
+										</div>
+									</div>
+									<div class="col-md-12"> 
+										<div class="form-group">
+											<label>Mail adresiniz <span class="text-danger">*</span></label>
+											<input type="text"  id="email" name="email" formControlName="email"  class="form-control" placeholder="">
+										</div>
+									</div>
+									<div class="col-md-12"> 
+										<div class="form-group">
+											<label>Telefon numaranız <span class="text-danger">*</span></label>
+											<input type="number" name="phone" id="phone" formControlName="phone" class="form-control" placeholder="">
+										</div>
+									</div>	
+									<!-- <div class="col-md-12"> 
+										<div class="form-group">
+											<label>Konu <span class="text-danger">*</span></label>
+											<input type="text" name="subject" formControlName="subject" id="name" class="form-control" placeholder="">
+										</div>
+									</div>	 -->
+															
+									<div class="col-md-12"> 
+										<div class="form-group">
+											<label>Talebiniz <span class="text-danger">*</span></label>
+											<textarea class="form-control" rows="4" cols="50" placeholder="" name="message" id="message" formControlName="message">  </textarea>
+										</div>
+									</div>
+								</div>		
+								<button class="btn contact-btn" type="submit">Talebi Gönder</button>					
+							</form>
+						</div>
+					</div>
+				</div>	
+			</div>	
+		</section>
+   		<!-- /Pricing Plan -->

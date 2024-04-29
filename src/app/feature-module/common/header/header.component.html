@@ -1,0 +1,111 @@
+<header class="header">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg header-nav">
+      <div class="navbar-header">
+        <a (click)="toggleSidebar()" id="mobile_btn" href="javascript:void(0);">
+          <span class="bar-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </a>
+        <a [routerLink]="routes.home" class="navbar-brand logo">
+          <img src="assets/img/logo/378x238.jpg" style="width: 35%;" class="img-fluid" alt="Logo" />
+        </a>
+        <a [routerLink]="routes.home" class="navbar-brand logo-small">
+          <img src="assets/img/logo/378x238.jpg" class="img-fluid" alt="Logo" style="width: 25%;" />
+        </a>
+      </div>
+      <div class="main-menu-wrapper">
+        <div class="menu-header">
+          <a [routerLink]="routes.home" class="menu-logo">
+            <img src="assets/img/logo/378x238.jpg" style="width: 51%;" class="img-fluid" alt="Logo" />
+          </a>
+          <a (click)="hideSidebar()" id="menu_close" class="menu-close" href="javascript:void(0);">
+            <i class="fas fa-times"></i></a>
+        </div>
+        <ul class="main-nav">
+          <ng-container *ngFor="let mainMenus of header">
+            <ng-container *ngIf="mainMenus.separateRoute == true">
+              <li routerLinkActive="active">
+                <a [routerLink]="mainMenus.routes">{{ mainMenus.tittle }}</a>
+              </li>
+            </ng-container>
+            <ng-container *ngIf="mainMenus.separateRoute == false">
+              <li class="has-submenu" routerLinkActive="active">
+                <a href="javascript:void(0);" (click)="mainMenus.showAsTab = !mainMenus.showAsTab">{{ mainMenus.tittle
+                  }} <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu" [ngClass]="{
+                    'd-block': mainMenus.showAsTab == true
+                  }">
+                  <ng-container *ngFor="let menu of mainMenus.menu">
+                    <ng-container *ngIf="menu.hasSubRoute == false">
+                      <li routerLinkActive="active">
+                        <a [routerLink]="menu.routes">{{ menu.menuValue }}</a>
+                      </li>
+                    </ng-container>
+                    <ng-container *ngIf="menu.hasSubRoute == true">
+                      <li class="has-submenu" routerLinkActive="active">
+                        <a (click)="menu.showSubRoute = !menu.showSubRoute" [routerLink]="menu.routes">{{ menu.menuValue
+                          }}</a>
+                        <ul class="submenu" [ngClass]="{
+                            'd-block': menu.showSubRoute == true
+                          }">
+                          <ng-container *ngFor="let subMenu of menu.subMenus">
+                            <li routerLinkActive="active">
+                              <a [routerLink]="subMenu.routes">{{
+                                subMenu.menuValue
+                                }}</a>
+                            </li>
+                          </ng-container>
+                        </ul>
+                      </li>
+                    </ng-container>
+                  </ng-container>
+                </ul>
+              </li>
+            </ng-container>
+          </ng-container>
+        </ul>
+      </div>
+      <div class="footer-social-widget"></div>
+      <ul class="nav header-navbar-rht">
+        <li class="nav-item">
+          <a class="nav-link header-login" href="tel:{{getsettinphoneModel?.name}}"><span><i
+                class="feather icon-phone-call"></i></span>{{getsettinphoneModel?.value}}</a>
+        </li>
+        <li class="nav-item">
+          <a style="background-color: #43e560;" class="nav-link header-reg" target="_blank"
+            href="https://api.whatsapp.com/send?phone={{getwhatsAppModel?.name}}"><span><img
+                src="assets/img/whatsapp-ıcon.png" style="height: 26px;" alt=""></span>{{getwhatsAppModel?.value}}</a>
+        </li>
+        <!-- <li style="font-size: 0px;
+                                cursor: pointer;
+                                text-align: center;
+                                position: relative;
+                                z-index: 1;
+                                overflow: hidden;
+                                border-radius: 50px;
+                                min-width: 36px;
+                                height: 36px;
+                                transition: background 0.3s, color 0.3s, box-shadow 0.3s;background-color: black;margin-top: 4px;">
+                                    <a  href="{{gettwitterModel?.value}}" target="_blank"><i> <img style="width: 18px;
+                                      height: 20px;
+                                      margin-top: 3px;
+                                      margin-left: 40%;" src="assets/img/twitter-x-logo.svg"  alt=""></i></a>
+                                </li> -->
+        <li style="margin-left: 9px;">
+          <a href="{{getinstagramModel?.value}}" target="_blank"><i class="fab fa-instagram fi-icon"></i></a>
+        </li>
+        <li>
+          <a href="{{getfacebookModel?.value}}" target="_blank"><i
+              class="fa-brands fa-facebook-f fa-facebook fi-icon"></i></a>
+        </li>
+        <li>
+          <a href="{{getyoutubeModel?.value}}" target="_blank"><i style="background-color: #f44336;"
+              class="fab fa-youtube fi-icon"></i></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

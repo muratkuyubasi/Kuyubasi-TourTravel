@@ -1,0 +1,229 @@
+<script src=""></script>
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row align-items-center text-center">
+            <div class="col-md-12 col-12">
+                <h2 class="breadcrumb-title">TURLAR</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sortby-sec">
+    <div class="container">
+        <div class="sorting-div">
+            <div class="row d-flex align-items-center">
+                <div class="col-xl-4 col-lg-3 col-sm-12 col-12">
+                    <div class="count-search">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="section car-listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 theiaStickySidebar">
+                <div class="stickybar">
+                    <form action="#" autocomplete="off" class="sidebar-form">
+                        <div class="sidebar-heading">
+                        </div>
+                        <div class="accordion" id="accordionMain1">
+                            <div class="card-header-new" id="headingOne">
+                                <h6 class="filter-title">
+                                    <a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Kategori
+                                        <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                                    </a>
+                                </h6>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample1">
+                                <div class="card-body-chat">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="checkBoxes1">
+                                                <div class="selectBox-cont" *ngIf="getcategoryModel"
+                                                    [(ngModel)]="tourResource.PeriodName">
+                                                    <label class="custom_check w-100"
+                                                        *ngFor="let data of getcategoryModel">
+                                                        <input type="radio" name="username"
+                                                            (click)="genelSearch($event)" name="period"
+                                                            value="{{data.title}}">
+                                                        <span class="checkmark"></span> {{data.title}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion" id="accordionMain2">
+                            <div class="card-header-new" id="headingTwo">
+                                <h6 class="filter-title">
+                                    <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        Dönemler
+                                        <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                                    </a>
+                                </h6>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample2">
+                                <div class="card-body-chat">
+                                    <div id="checkBoxes2">
+                                        <div class="selectBox-cont" *ngIf="getperiodModel"
+                                            [(ngModel)]="tourResource.PeriodName">
+                                            <label class="custom_check w-100" *ngFor="let data of getperiodModel">
+                                                <input type="radio" (click)="genelSearch($event)" name="period"
+                                                    value="{{data.title}}">
+                                                <span class="checkmark" name="period"></span> {{data.title}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion" id="accordionMain3">
+                            <div class="card-header-new" id="headingThree">
+                                <h6 class="filter-title">
+                                    <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="true"
+                                        aria-controls="collapseThree">
+                                        Bölgeler
+                                        <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                                    </a>
+                                </h6>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample3">
+                                <div class="card-body-chat">
+                                    <div id="checkBoxes2">
+                                        <div class="selectBox-cont" *ngIf="getregionModel"
+                                            [(ngModel)]="tourResource.RegionName">
+                                            <label class="custom_check w-100" *ngFor="let data of getregionModel">
+                                                <input type="radio" (click)="genelSearch($event)" name="region"
+                                                    value="{{data.title}}">
+                                                <span class="checkmark" name="region"></span> {{data.title}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion" id="accordionMain4">
+                            <div class="card-header-new" id="headingFour">
+                                <h6 class="filter-title">
+                                    <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="true"
+                                        aria-controls="collapseFour">
+                                        Fiyat
+                                        <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+                                    </a>
+                                </h6>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionExample4">
+                                <div class="card-body-chat">
+                                    <div class="price-input">
+                                        <div class="field">
+                                            <span>Min</span>
+                                            <input type="number" class="input-min" [(ngModel)]="minPrice"
+                                                name="minPrice" value="{{minPrice}}">
+                                        </div>
+                                        <div class="separator">-</div>
+                                        <div class="field">
+                                            <span>Max</span>
+                                            <input type="number" class="input-max" [(ngModel)]="maxPrice"
+                                                name="maxPrice" value="{{maxPrice}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="d-inline-flex align-items-center justify-content-center btn w-100 btn-primary filter-btn"
+                            (click)="searchTour()">
+                            <span><i class="feather icon-filter me-2"></i></span>Sonuçları filtrele
+                        </button>
+                        <a href="/listings/listing-grid" class="reset-filter">Filtereyi Sıfırla</a>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    <ng-container *ngFor="let data of gettourModel">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                            <div class="listing-item">
+                                <div class="listing-img">
+                                    <a (click)="detail(data.id)">
+                                        <img img [src]="path+'tours/'+data.tourMedias[2]?.fileName" alt="Image">
+                                    </a>
+                                    <div class="fav-item">
+                                        <span class="featured-text">{{data.regionRecord.title}}</span>
+                                      
+                                        
+                                    </div>
+                                </div>
+                                <div class="listing-content">
+                                    <div class="listing-features">
+                                        <h3 class="listing-title">
+                                            <a (click)="detail(data.id)">{{data.tourRecord.title}}</a>
+                                        </h3>
+                                    </div>
+                                    <div class="listing-details-group">
+                                        <ul>
+                                            <li>
+                                                <span><img src="assets/img/icons/kota.png" alt="Auto"
+                                                        style="width: 20px;" title="Kota"></span>
+                                                <p>{{data.quota}}</p>
+                                            </li>
+                                            <li>
+                                                <span><img src="assets/img/icons/kisi_sayısı.png" alt="10 KM"
+                                                        style="width: 20px;"
+                                                        title="Rezervasyon Olan Kişi Sayısı"></span>
+                                                <p>{{data.reservationTotalPerson}}</p>
+                                            </li>
+                                            <li>
+                                                <span><img src="assets/img/icons/gun_sayısı.png" alt="Petrol"
+                                                        style="width: 20px;" title="Gün Sayısı"></span>
+                                                <p>{{data.dayCount}}</p>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <span><img src="assets/img/icons/baslangıc_tarihi.png" alt="Power"
+                                                        style="width: 20px;" title="Başlangıç Tarihi"></span>
+                                                <p>{{data.startDate | date:'dd/MM/yyyy' :'TR'}}</p>
+                                            </li>
+
+                                            <li>
+                                                <span><img src="assets/img/icons/bitis_tarihi.png" alt="2018"
+                                                        style="width: 20px;" title="Bitiş Tarihi"></span>
+                                                <p>{{data.endDate | date:'dd/MM/yyyy' :'TR'}}</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="listing-location-details">
+                                        <div class="listing-price">
+                                            <span><i class="feather icon-map-pin"></i></span>{{data.regionRecord.title}}
+                                        </div>
+                                        <div class="listing-price">
+                                            <h6>{{data.tourPrices[0].price}}€ <span>{{data.heading}}</span></h6>
+                                        </div>
+                                    </div>
+                                    <div class="listing-button">
+                                        <a (click)="detail(data.id)" class="btn btn-order"><span><i
+                                                    class="feather icon-calendar me-2"></i></span>Rezervasyon Yap</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

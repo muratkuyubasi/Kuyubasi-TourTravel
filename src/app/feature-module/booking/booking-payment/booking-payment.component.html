@@ -1,0 +1,590 @@
+		<div class="breadcrumb-bar">
+			<div class="container">
+				<div class="row align-items-center text-center">
+		    		<div class="col-md-12 col-12">
+			    	    <h2 class="breadcrumb-title">Rezervasyon Detayları</h2>
+					</div>
+				</div>
+			</div>
+		</div>     
+        <section class="booking-section">
+            <div class="container">
+                <ul class="nav nav-pills booking-tab" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="pills-booking-tab" data-bs-toggle="pill" href="#pills-booking" role="tab" aria-controls="pills-booking" aria-selected="true">
+                        <!-- <span>{{tourDetail.tourRecord.title}}</span> -->
+                        <h5>{{tourDetail.tourRecord.title}}</h5>
+                      </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" id="pills-payment-tab" data-bs-toggle="pill" href="#pills-payment" role="tab" aria-controls="pills-payment" aria-selected="false">
+                        <span>Adım 2</span>
+                        <h5>Ödeme Detayları</h5>
+                      </a>
+                    </li> -->
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-booking" role="tabpanel" aria-labelledby="pills-booking-tab">
+						<div class="booking-details">
+							<!-- <h3>Rezervasyon detayları</h3> -->
+							<div class="row booking-info">
+								<div class="col-md-4 col-sm-6 pickup-address">
+									<h5>Tarih</h5>
+									<hr style="opacity: 5.25;">
+									<h6> {{tourDetail?.startDate | date:'dd/MM/yyyy' :'TR'}} - {{tourDetail?.endDate | date:'dd/MM/yyyy' :'TR'}}</h6>
+								</div>
+								<div class="col-md-4 col-sm-6 drop-address">
+									<h5>Kişi Sayısı </h5>
+									<hr style="opacity: 5.25;">
+									<h6>{{personCount}}<span> </span><i class="feather-info"></i></h6>
+
+								</div>
+								<div class="col-md-4 col-sm-6 drop-address">
+									<h5>Çocuk/Öğrenci Sayısı </h5>
+									<hr style="opacity: 5.25;">
+									<h6>{{childCount}}<span> </span><i class="feather-info"></i></h6>
+
+								</div>
+								<!-- <div class="col-md-4 col-sm-6 booking-amount">
+									<h5>Ödenecek tutar</h5>
+									<h6><span>{{countedPrice}}€ </span><i class="feather-info"></i></h6>
+								</div> -->
+							</div>
+							<div class="booking-form">
+								<div class="booking-title">
+									<h5></h5>
+								</div>
+								<form [formGroup]="reservationForm">
+									<div class="book-now-content">
+										<h3>İletişim ve Fatura Bilgileri</h3>
+										<div class="row">
+											<div class="col-lg-6 col-md-6">
+												<div class="form-group">
+													<label>Ad</label>
+													<input type="text" formControlName="ContactFirstName" id="ContactFirstName" class="form-control">
+													<div *ngIf="reservationForm.get('ContactFirstName').touched && reservationForm.get('ContactFirstName').errors">
+													<div class="text-danger" *ngIf="reservationForm.get('ContactFirstName').errors?.required">
+														Lütfen ad giriniz
+													</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6">
+												<div class="form-group">
+													<label>Soyad</label>
+													<input type="text" formControlName="ContactLastName" id="ContactLastName" class="form-control">
+													<div *ngIf="reservationForm.get('ContactLastName').touched && reservationForm.get('ContactLastName').errors">
+													<div class="text-danger" *ngIf="reservationForm.get('ContactLastName').errors?.required">
+														Lütfen soyad giriniz
+													</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-8 col-md-8">
+												<div class="form-group">
+													<label>Adres</label>
+													<input type="text" formControlName="ContactAddress" id="ContactAddress" class="form-control">
+													<div *ngIf="reservationForm.get('ContactAddress').touched && reservationForm.get('ContactAddress').errors">
+													<div class="text-danger" *ngIf="reservationForm.get('ContactAddress').errors?.required">
+														Lütfen adres giriniz
+													</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-4 col-md-4">
+												<div class="form-group">
+													<label>Uyruk</label>
+													<input type="text" formControlName="Uyruk" id="Uyruk" class="form-control">
+													<div *ngIf="reservationForm.get('Uyruk').touched && reservationForm.get('Uyruk').errors">
+													<div class="text-danger" *ngIf="reservationForm.get('Uyruk').errors?.required">
+														Lütfen uyruk giriniz
+													</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6">
+												<div class="form-group">
+													<label>No</label>
+													<input type="number" formControlName="ContactDoorNumber" id="ContactDoorNumber" class="form-control">
+													<div *ngIf="reservationForm.get('ContactDoorNumber').touched && reservationForm.get('ContactDoorNumber').errors">
+													<div class="text-danger" *ngIf="reservationForm.get('ContactDoorNumber').errors?.required">
+														Lütfen no giriniz
+													</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6">
+												<div class="form-group">
+													<label>Posta kodu</label>
+													<input type="text" formControlName="ContactPostalCode" id="ContactPostalCode" class="form-control">
+													<div *ngIf="reservationForm.get('ContactPostalCode').touched && reservationForm.get('ContactPostalCode').errors">
+													<div class="text-danger" *ngIf="reservationForm.get('ContactPostalCode').errors?.required">
+														Lütfen posta kodu giriniz
+													</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6">
+												<div class="form-group">
+													<label>Şehir</label>
+													<input type="text" formControlName="ContactCity" id="ContactCity" class="form-control">
+													<div *ngIf="reservationForm.get('ContactCity').touched && reservationForm.get('ContactCity').errors">
+													<div class="text-danger" *ngIf="reservationForm.get('ContactCity').errors?.required">
+														Lütfen Şehir giriniz
+													</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6">
+												<div class="form-group">
+													<label>Ülke</label>
+													<input type="text" formControlName="ContactCountry" id="ContactCountry" class="form-control">
+													<div *ngIf="reservationForm.get('ContactCountry').touched && reservationForm.get('ContactCountry').errors">
+													<div class="text-danger" *ngIf="reservationForm.get('ContactCountry').errors?.required">
+														Lütfen ülke giriniz
+													</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6">
+												<div class="form-group">
+													<label>Telefon</label>
+													<input type="number" formControlName="ContactPhone" id="ContactPhone" class="form-control">
+													<div *ngIf="reservationForm.get('ContactPhone').touched && reservationForm.get('ContactPhone').errors">
+													<div class="text-danger" *ngIf="reservationForm.get('ContactPhone').errors?.required">
+														Lütfen telefon numarası giriniz
+													</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6">
+												<div class="form-group">
+													<label>Email</label>
+													<input type="text" formControlName="ContactEmail" id="ContactEmail" class="form-control">
+													<div *ngIf="reservationForm.get('ContactEmail').touched && reservationForm.get('ContactEmail').errors">
+													<div class="text-danger" *ngIf="reservationForm.get('ContactEmail').errors?.required">
+														Lütfen E-posta giriniz
+													</div>
+													<div class="text-danger" *ngIf="reservationForm.get('ContactEmail').errors?.email">
+														Lütfen Geçerli bir e-posta giriniz
+													</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-12">   
+												<div class="form-group">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" (change)="showDiffInvoice = !showDiffInvoice" id="diff">
+														<label class="form-check-label" for="diff">
+															Farklı fatura adresi belirtmek istiyorum
+														</label>
+													</div>
+												</div>
+												<div class="row" *ngIf="showDiffInvoice">
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Ad</label>
+															<input type="text" formControlName="InvoiceTitle" id="InvoiceTitle" class="form-control">
+															<div *ngIf="reservationForm.get('InvoiceTitle').touched && reservationForm.get('InvoiceTitle').errors">
+															<div class="text-danger" *ngIf="reservationForm.get('InvoiceTitle').errors?.required">
+																Lütfen ad giriniz
+															</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Soyad</label>
+															<input type="text" formControlName="InvoiceTitle" id="InvoiceTitle" class="form-control">
+															<div *ngIf="reservationForm.get('ContactLastName').touched && reservationForm.get('InvoiceTitle').errors">
+															<div class="text-danger" *ngIf="reservationForm.get('InvoiceTitle').errors?.required">
+																Lütfen soyad giriniz
+															</div>
+															</div>
+														</div>
+													</div>
+													<!-- <div class="col-lg-12 col-md-12">
+														<div class="form-group">
+															<label>Ünvan</label>
+															<input type="text" formControlName="InvoiceTitle" id="InvoiceTitle" class="form-control">
+															<div *ngIf="reservationForm.get('InvoiceTitle').touched && reservationForm.get('InvoiceTitle').errors">
+															<div class="text-danger" *ngIf="reservationForm.get('InvoiceTitle').errors?.required">
+																Lütfen ünvan giriniz
+															</div>
+															</div>
+														</div>
+													</div> -->
+													<div class="col-lg-12 col-md-12">
+														<div class="form-group">
+															<label>Adres</label>
+															<input type="text" formControlName="InvoiceAddress" id="InvoiceAddress" class="form-control">
+															<div *ngIf="reservationForm.get('InvoiceAddress').touched && reservationForm.get('InvoiceAddress').errors">
+															<div class="text-danger" *ngIf="reservationForm.get('InvoiceAddress').errors?.required">
+																Lütfen adres giriniz
+															</div>
+															</div>
+														</div>
+													</div>
+													
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>No</label>
+															<input type="number" formControlName="InvoiceDoorNumber" id="InvoiceDoorNumber" class="form-control">
+															<div *ngIf="reservationForm.get('InvoiceDoorNumber').touched && reservationForm.get('InvoiceDoorNumber').errors">
+															<div class="text-danger" *ngIf="reservationForm.get('InvoiceDoorNumber').errors?.required">
+																Lütfen no giriniz
+															</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Posta kodu</label>
+															<input type="text" formControlName="InvoicePostalCode" id="InvoicePostalCode" class="form-control">
+															<div *ngIf="reservationForm.get('InvoicePostalCode').touched && reservationForm.get('InvoicePostalCode').errors">
+															<div class="text-danger" *ngIf="reservationForm.get('InvoicePostalCode').errors?.required">
+																Lütfen posta kodu giriniz
+															</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Ülke</label>
+															<input type="text" formControlName="InvoiceCountry" id="InvoiceCountry" class="form-control">
+															<div *ngIf="reservationForm.get('InvoiceCountry').touched && reservationForm.get('InvoiceCountry').errors">
+															<div class="text-danger" *ngIf="reservationForm.get('InvoiceCountry').errors?.required">
+																Lütfen ülke giriniz
+															</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Şehir</label>
+															<input type="text" formControlName="InvoiceCity" id="InvoiceCity" class="form-control">
+															<div *ngIf="reservationForm.get('InvoiceCity').touched && reservationForm.get('InvoiceCity').errors">
+															<div class="text-danger" *ngIf="reservationForm.get('InvoiceCity').errors?.required">
+																Lütfen Şehir giriniz
+															</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div formArrayName="ReservationPersons">
+										<div class="book-now-content" *ngFor="let person of ReservationPersons.controls; let i= index">
+											<h3>{{i+1}}. Kişi Bilgileri</h3>
+											<form  [formGroupName]="i">
+												<div class="row">
+													<div class="col-12">
+														<select formControlName="tourPriceId" id="tourPriceId" class="form-control">
+															<option value="">Lütfen Seçiniz</option>
+															<ng-container  *ngFor="let item of tourDetail.tourPrices"> 
+															<option *ngIf="item.isChildPrice == false" value="{{item.id}}">{{item.title}} | {{item.price}}</option>
+															</ng-container>
+														</select>
+													</div>
+													
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Ad </label>
+															<input type="text" formControlName="FirstName" id="FirstName" class="form-control">
+															<div *ngIf="person.get('FirstName').touched && person.get('FirstName').errors">
+																<div class="text-danger" *ngIf="person.get('FirstName').errors['required']">
+																Lütfen ad giriniz
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Soyad </label>
+															<input type="text" formControlName="LastName" id="LastName" class="form-control">
+															<div *ngIf="person.get('LastName').touched && person.get('LastName').errors">
+																<div class="text-danger" *ngIf="person.get('LastName').errors['required']">
+																Lütfen soyad no giriniz
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Uyruk </label>
+															<input type="text" formControlName="Uyruk" id="Uyruk" class="form-control">
+															<div *ngIf="person.get('Uyruk').touched && person.get('Uyruk').errors">
+																<div class="text-danger" *ngIf="person.get('Uyruk').errors['required']">
+																Lütfen uyruk  giriniz
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Telefon </label>
+															<input type="number" formControlName="Phone" id="Phone" class="form-control">
+															<div *ngIf="person.get('Phone').touched && person.get('Phone').errors">
+																<div class="text-danger" *ngIf="person.get('Phone').errors['required']">
+																Lütfen Telefon giriniz
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Doğum Tarihi </label>
+															<input type="date" formControlName="BirthDay" id="BirthDay" class="form-control">
+															<!-- <div *ngIf="person.get('BirthDay').touched && person.get('BirthDay').errors">
+																<div class="text-danger" *ngIf="person.get('BirthDay').errors?.required">
+																Lütfen Doğum Tarihi
+																</div>
+															</div> -->
+														</div>
+													</div>
+													
+													<div class="col-lg-4 col-sm-6">
+														<div class="form-group">
+															<label>Cinsiyet</label>
+															<div class="form-check">
+																<input class="form-check-input" type="radio" formControlName="Gender" id="Gender" value="0">
+																<label class="form-check-label" for="male">
+																	Erkek
+																</label>
+															   
+															</div>
+															<div class="form-check">
+																<input class="form-check-input" type="radio" formControlName="Gender" id="female" value="1">
+																<label class="form-check-label" for="female">
+																	Kadın
+																</label>
+															</div>
+															<div *ngIf="person.get('Gender').touched && person.get('Gender').errors">
+																<!-- <div class="text-danger" *ngIf="person.get('Gender').errors?.required">
+																Lütfen Cinsiyet seçiniz
+																</div> -->
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6" style="margin:auto;border: 1px solid #ced4da;">
+														<label>Pasaport Görseli</label>
+													<input 
+													formControlName="file"
+													id="file" 
+													type="file" 
+													class="form-control"
+													(change)="onFileChange($event,i)">
+													<label> Örnek Görsel</label>
+													<img src="assets/img/ExamplePassport.jpeg"  alt="Mazda" style="height: 185px;">
+												</div>
+												</div>
+											</form>
+											
+										</div>
+							
+									</div>
+
+									<div formArrayName="ReservationChilds">
+										<div class="book-now-content" *ngFor="let person of ReservationChilds.controls; let i= index">
+											<br>
+											<h3>{{i+1}}. Çocuk/Öğrenci Bilgileri</h3>
+											<div class="row" [formGroupName]="i">
+
+												<div class="col-12">
+													<select formControlName="tourPriceId" id="tourPriceId" (change)="prices($event.target)" class="form-control">
+														<option value="">Lütfen Seçiniz</option>
+														<ng-container  *ngFor="let item of tourDetail.tourPrices">
+														<option *ngIf="item.isChildPrice == true"  [value]="item.id">{{item.title}} | {{item.price}}</option>
+														</ng-container>
+													</select>
+												</div>
+												<div class="col-lg-6 col-md-6">
+													<div class="form-group">
+														<label>Ad </label>
+														<input type="text" formControlName="FirstName" id="FirstName" class="form-control">
+														<div *ngIf="person.get('FirstName').touched && person.get('FirstName').errors">
+															<div class="text-danger" *ngIf="person.get('FirstName').errors">
+																Lütfen ad giriniz
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6">
+													<div class="form-group">
+														<label>Soyad </label>
+														<input type="text" formControlName="LastName" id="LastName" class="form-control">
+														<div *ngIf="person.get('LastName').touched && person.get('LastName').errors">
+															<div class="text-danger" *ngIf="person.get('LastName').errors">
+																Lütfen soyad no giriniz
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6">
+													<div class="form-group">
+														<label>Telefon </label>
+														<input type="number" formControlName="Phone" id="Phone" class="form-control">
+														<div *ngIf="person.get('Phone').touched && person.get('Phone').errors">
+															<div class="text-danger" *ngIf="person.get('Phone').errors['required']">
+															Lütfen Telefon giriniz
+															</div>
+														</div>
+													</div>
+												</div>
+						
+												<div class="col-lg-6 col-md-6">
+													<div class="form-group">
+														<label>Doğum Tarihi </label>
+														<input type="date" formControlName="BirthDay" id="BirthDay" class="form-control">
+														<div *ngIf="person.get('BirthDay').touched && person.get('BirthDay').errors">
+															<div class="text-danger" *ngIf="person.get('BirthDay').errors">
+																Lütfen Doğum Tarihi
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-12 col-sm-12">
+													<div class="form-group">
+														<label>Cinsiyet</label>
+														<div class="form-check ">
+															<input class="form-check-input" type="radio" formControlName="Gender" id="Gender"
+																value="0">
+															<label class="form-check-label" for="male">
+																Erkek
+															</label>
+						
+														</div>
+														<div class="form-check">
+															<input class="form-check-input" type="radio" formControlName="Gender" id="female"
+																value="1">
+															<label class="form-check-label" for="female">
+																Kız
+															</label>
+														</div>
+														<div *ngIf="person.get('Gender').touched && person.get('Gender').errors">
+															<div class="text-danger" *ngIf="person.get('Gender').errors">
+																Lütfen Cinsiyet seçiniz
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6" style="margin:auto;border: 1px solid #ced4da;">
+													<label>Pasaport Görseli</label>
+						
+												<input 
+												formControlName="file"
+												id="file" 
+												type="file" 
+												class="form-control"
+												(change)="onFileChange($event,i)">
+												<label> Örnek Görsel</label>
+												<img src="assets/img/ExamplePassport.jpeg"  alt="Mazda" style="height: 185px;">
+
+											</div>
+											</div>
+										</div>
+						
+									</div>
+									<br>
+
+									<div class="row booking-info">
+										 <div class="col-md-4 col-sm-4 booking-amount">
+											<h5>Toplam ödecek tutar</h5>
+											<h6><span>{{countedPrice}}€ </span><i class="feather-info"></i></h6>
+										</div> 
+									</div>
+									<div class="book-now-content">
+										<button class="btn btn-primary submit-review" type="submit" (click)="addReservation()"> Rezervasyon Yap</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="back-detail-page">
+							<!-- <a [routerLink]="routes.listingDetails"><i class="fa-solid fa-arrow-left me-2"></i> Back to detail page</a> -->
+						</div>
+					</div>
+                    <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+						<div class="booking-details payment-details">
+							<div class="booking-title">
+								<h3>Payment Details</h3>
+							</div>		
+							<div class="booking-info">
+								<div class="booking-amount">
+									<h5>Your Payment</h5>
+									<h6><span>$315 </span><i class="feather-info"></i></h6>
+								</div>
+							</div>
+							<div class="payment-method">
+								<h4>Choose your Payment Method</h4>
+								<ul>
+									<li><a href="javascript:void(0)"><img src="assets/img/icons/payment-1.svg" alt=""></a></li>
+									<li><a href="javascript:void(0)"><img src="assets/img/icons/payment-2.svg" alt=""></a></li>
+									<li><a href="javascript:void(0)"><img src="assets/img/icons/payment-3.svg" alt=""></a></li>
+									<li><a href="javascript:void(0)"><img src="assets/img/icons/payment-4.svg" alt=""></a></li>
+								</ul>
+								<div class="booking-form">
+									<div class="booking-title">
+										<h5>Enter Below details</h5>
+									</div>
+									<form class="#">
+										<div class="row">
+											<div class="col-lg-12">												
+												<div class="form-group">														
+													<label>Card Number <span class="text-danger">*</span></label>	
+													<input type="number" class="form-control" placeholder="45612212255455">
+												</div>
+											</div>
+											<div class="col-lg-6">													
+												<div class="form-group">
+													<label>Expiration date  <span class="text-danger">*</span></label>	
+													<input type="number" class="form-control" placeholder="12/25">
+												</div>
+											</div>
+											<div class="col-lg-6">												
+												<div class="form-group">														
+													<label>Security number  <span class="text-danger">*</span></label>	
+													<input type="text" class="form-control" placeholder="">
+												</div>
+											</div>
+											<div class="form-group payment-checkbox m-0">
+												<label class="custom_check">
+													<input type="checkbox" name="rememberme" class="rememberme">
+													<span class="checkmark"></span>
+													Save this account for future transaction
+												</label>
+											</div>
+										</div>
+										<div class="payment-btn">
+											<button class="btn btn-primary submit-review w-100" type="button"  data-bs-toggle="modal" data-bs-target="#pages_edit">Pay $315</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="back-detail-page">
+							<a [routerLink]="routes.bookingList"><i class="fa-solid fa-arrow-left me-2"></i> Back to Booking Detail</a>
+						</div>
+					</div>
+                </div>
+            </div>
+        </section>
+			<div class="modal custom-modal fade check-availability-modal payment-success-modal" id="pages_edit" role="dialog">
+				<div class="modal-dialog modal-dialog-centered modal-md">
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="payment-success">
+								<span class="check"><i class="fa-solid fa-check-double"></i></span>
+								<h5>Payment Successful</h5>
+								<p>You Payment has been successfully done.
+									Trasaction id :<span> #5064164454</span>
+								</p>
+								<div class="order-confirm">
+									<a [routerLink]="routes.bookingList" data-bs-dismiss="modal">Go to Order Confirmation<i class="fa-solid fa-arrow-right ms-2"></i></a>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>

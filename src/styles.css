@@ -1,0 +1,146 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+.stickybar {
+  position: sticky;
+  top: 0;
+}
+.filter-range .ngx-slider .ngx-slider-pointer {
+  width: 15px;
+  height: 16px;
+  background-color: #ff9307;
+  top: -6px;
+}
+
+.filter-range .ngx-slider .ngx-slider-bar {
+  height: 6px !important;
+}
+.filter-range .ngx-slider .ngx-slider-bubble {
+  color: white;
+  font-size: 12px;
+  line-height: 1.333;
+  text-shadow: none;
+  padding: 4px 10px;
+  background-color: #ff9307;
+  border-radius: 2px;
+  top: -38px;
+  margin: 0px 0px !important;
+}
+.filter-range .ngx-slider .ngx-slider-bubble {
+  background: #ff9307;
+  width: 50px;
+  text-align: center;
+  margin-left: 10px !important;
+}
+.filter-range .ngx-slider .ngx-slider-bubble.ngx-slider-limit {
+  display: none !important;
+}
+.filter-range
+  .ngx-slider.animate
+  .ngx-slider-bubble.ngx-slider-limit.ngx-slider-floor {
+  display: none !important;
+}
+.filter-range
+  .ngx-slider.animate
+  .ngx-slider-bubble.ngx-slider-limit.ngx-slider-ceil {
+  display: none !important;
+}
+.filter-range .ngx-slider .ngx-slider-pointer::after {
+  display: none !important;
+}
+.filter-range .ngx-slider .ngx-slider-selection {
+  background-color: #ff9307 !important;
+}
+
+.filter-range .ngx-slider-selection-bar {
+  visibility: unset !important;
+}
+.mat-mdc-option:hover:not(.mdc-list-item--disabled),
+.mat-mdc-option:focus:not(.mdc-list-item--disabled),
+.mat-mdc-option.mat-mdc-option-active,
+.mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple):not(
+    .mdc-list-item--disabled
+  ) {
+  background-color: #127384;
+}
+.mat-mdc-option-active .mdc-list-item__primary-text,
+.mat-mdc-option:hover .mdc-list-item__primary-text {
+  color: #fff !important;
+}
+.mat-mdc-option {
+  min-height: 35px !important;
+  font-size: 14px;
+}
+.mat-mdc-option .mat-pseudo-checkbox-minimal {
+  display: none;
+}
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover
+  > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(
+    .mat-calendar-body-comparison-identical
+  ) {
+  background-color: #ffa633;
+}
+.mat-calendar-body-today:not(.mat-calendar-body-selected):not(
+    .mat-calendar-body-comparison-identical
+  ) {
+    border-color: #ffa633;
+    background: #ffa633;
+}
+.mat-calendar-body-selected {
+  background-color: #ffa633;
+  color: rgba(0, 0, 0, 0.87);
+}
+.datepicker-icon {
+  pointer-events: auto;
+  position: absolute;
+  top: 0;
+}
+.cus-icon-calender {
+  font-size: 16px;
+}
+.datepicker-icon-listing {
+  position: absolute;
+  top: -6px;
+  right: 0;
+  line-height: normal;
+}
+.group-img {
+  position: relative;
+}
+
+.group-img .mat-icon {
+  height: auto;
+}
+.owl-theme .owl-nav [class*=owl-] {
+  color:#2F2F2F;
+  font-size: 14px;
+  margin: 5px;
+  padding: 4px 7px;
+  background: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.owl-theme .owl-nav [class*=owl-]:hover {
+  background: none;
+  color: #FFF;
+  text-decoration: none;
+}
+.footer .footer-contact .footer-contact-info .update-form .btn .icon-send {
+    color: #ffffff;
+}
+.slick-prev:before, .slick-next:before {
+  color: black;
+}
+.detail-bigimg button:focus {
+  background: #fff;
+}
+span.mat-mdc-select-min-line {
+  color: #878A99;
+}

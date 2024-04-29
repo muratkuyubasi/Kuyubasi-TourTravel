@@ -1,0 +1,485 @@
+<!-- Breadscrumb Section -->
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row align-items-center text-center">
+            <div class="col-md-12 col-12">
+                <h2 class="breadcrumb-title">{{gettourModel?.tourRecord?.title}}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="product-detail-head">
+    <div class="container">
+        <div class="detail-page-head">
+            <div class="detail-headings">
+                <div class="star-rated">
+                    <div class="list-rating">
+                        <span class="year" style="border-radius: 15px;">{{gettourModel?.startDate | date:'dd/MM/yyyy'
+                            :'TR'}} -
+                            {{gettourModel?.endDate | date:'dd/MM/yyyy' :'TR'}}</span>
+                    </div>
+                    <div class="camaro-info">
+                        <h3>{{gettourModel?.tourRecord?.title}}</h3>
+                        <div class="camaro-location">
+                            <!-- <div class="camaro-location-inner">
+                                <i class="feather icon-map-pin me-2"></i>
+                                <span class="me-2"> <b>Adres :</b> Miami St, Destin, FL 32550, USA </span>
+                            </div> -->
+                            <!-- <div class="camaro-locations-inner">
+                                <i class="feather icon-eye me-2"></i>
+
+                                <span><b>Görüntüleme :</b> {{gettourModel.tourClicks.length}} </span>
+                            </div> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section product-details">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="detail-product">
+                    <div class="slider">
+                        <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig" data-sizes="50vw"
+                            class="detail-bigimg">
+                            <div ngxSlickItem class="product-img" *ngFor="let data of gettourModel?.tourMedias">
+                                <img [src]="path+'tours/'+data?.fileName">
+                            </div>
+                        </ngx-slick-carousel>
+                    </div>
+                    <div class="slider">
+                        <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig2" data-sizes="50vw"
+                            class="slider-nav-thumbnails">
+                            <div ngxSlickItem *ngFor="let data of gettourModel?.tourMedias"><img
+                                    [src]="path+'tours/'+data?.fileName">
+                            </div>
+                        </ngx-slick-carousel>
+                    </div>
+                </div>
+                <div class="review-sec extra-service mb-0">
+                    <div class="review-header">
+                        <h4>Önemli Bilgiler</h4>
+                    </div>
+                    <div class="col-lg-12" data-aos="fade-down">
+                        <div class="about-content" style="margin: 0 0 0 0px;">
+                            <ul>
+                                <li>1. Tur bedeli sadece belirlenen tarihler için geçerlidir.
+                                </li>
+                                <li style="text-align: justify;">2. Öğrencilere tahsis edilen kontenjan sınırlıdır.</li>
+                                <li style="text-align: justify;">3. Kayıt formunun WhatsApp veya E-posta üzerinden
+                                    gönderilmesiyle ön kayıtlar
+                                    yapılmakta olup kesin kayıtlar ancak tur ücretinin tamamının ilgili hesaba
+                                    gönderilmesiyle gerçekleşmektedir.</li>
+                                <li style="text-align: justify;">4. Kesin kayıt sonrasında katılımcıların tura
+                                    katılımlarını iptal etmek istemeleri
+                                    durumunda; otel ve firmaların uygulayacağı iptal ücreti (Stornogebühr)
+                                    katılımcılardan tahsil edilir. Gezi tarihine 30 gün kala bildirilen iptallerde bilet
+                                    ücreti iadesi yapılamamaktadır. Gezi tarihine 14 gün kala bildirilen
+                                    iptallerde ise hiçbir ücret iadesi yapılamamaktadır.</li>
+                                <li style="text-align: justify;">5. Otellerde iki, üç veya dört kişilik odalarda
+                                    konaklama imkanı sunulmakta olup
+                                    istisnai durumlarda odalardaki 3. ve 4. yataklar ilave yatak özelliğinde
+                                    sunulabilmektedir.
+                                </li>
+                                <li style="text-align: justify;">6. Belirtilen otel sınıfı aynı kalmakla birlikte bazı
+                                    durumlarda otel değişiklikleri
+                                    olabilmektedir.</li>
+                                <li style="text-align: justify;">7. 0-2 yaş çocuklar için direkt uçuşlarda 50, aktarmalı
+                                    uçuşlarda 100 euro vergi
+                                    bedeli havayolu şirketleri tarafından tahsil edilmekte olup havayolları
+                                    kaynaklı artış olması durumunda katılımcılardan ilave ücret talep edilecektir.</li>
+                                <li style="text-align: justify;">8. Bütün pasaport tipleri için seyahat tarihi
+                                    itibariyle en az 6 ay geçerlilik
+                                    süresi olması gerekmektedir. Geçerlilik süresi 6 aydan az olan pasaportla başvuru
+                                    yapılması durumunda bütün sorumluluk katılımcıya aittir</li>
+                                <li style="text-align: justify;">9. Gümrüklü yurtdışı çıkışlarında kalkış günü ilgili
+                                    havalimanında hareket saatinden
+                                    en az 3 saat önce hazır bulunulması gerekmekte olup şirketimizin elinde
+                                    olmayan durumlardan ötürü uçuşlarda yaşanabilecek gecikmelerde sorumluluk kabul
+                                    edilmemektedir.
+                                </li>
+                                <li style="text-align: justify;">10. İmkan bulunması halinde katılımcıların Check-in
+                                    işlemlerini tur hareketinden 24
+                                    saat önce online yapmaları tavsiye edilmektedir.</li>
+                                <li style="text-align: justify;">11. 18 yaşından küçük katılımcıların ebeveynlerinden
+                                    birinin veya her ikisinin tura
+                                    katılmaması durumunda, katılımcı için muvafakatname hazırlanması ve
+                                    seyahat sırasında kişinin yanında bulunması gerekmektedir.</li>
+                                <li style="text-align: justify;">12. Tur bölgesinde bulunmasına rağmen çeşitli
+                                    sebeplerle yerel otoriteler tarafından
+                                    ziyarete izin verilmeyen bölgelere gidilememesinden şirketimiz
+                                    sorumlu değildir</li>
+                                <li style="text-align: justify;">13. Katılımcıların sürekli kullanmaları gereken ilaç ve
+                                    bu ilaçlarla ilgili
+                                    raporları seyahat esnasında devamlı yanlarında bulundurmaları gerekmektedir.</li>
+                                <li style="text-align: justify;">14. Otel bilgilendirmeleri tur hareketinden 48 saat
+                                    önce katılımcılara şirketimiz
+                                    tarafından bilahare bildirilmektedir. </li>
+                                <li style="text-align: justify;">15. Katılımcıların kişisel bilgilerini hatalı
+                                    bildirmelerinden kaynaklanabilecek
+                                    uçak bileti iptali veya değişikliği gibi mali yükümlülükler ilgili kişi tarafından
+                                    üstlenilecektir.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="section faq-section">
+                    <div class="faq-info">
+                        <div class="faq-card bg-white" data-aos="fade-down"
+                            *ngFor="let data of gettourModel?.tourDays; let i = index;">
+                            <h4 class="faq-title">
+                                <a class="collapsed" data-bs-toggle="collapse" href="#faqOne" aria-expanded="false"
+                                    data-bs-toggle="collapse" attr.data-bs-target="#collapse{{i}}" aria-expanded="true"
+                                    attr.aria-controls="collapse{{i}}">{{data?.title}}</a>
+                            </h4>
+                            <div class="card-collapse collapse" id="collapse{{i}}" class="accordion-collapse collapse"
+                                data-bs-parent="#faqAccordion1">
+                                <hr>
+                                <p style="text-align: justify;">{{data?.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-sec specification-card ">
+                    <div class="review-header">
+                        <h4>Tura Dahil Olan</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="lisiting-featues">
+                            <div class="row">
+                                <div class="featureslist d-flex align-items-center col-lg-3 col-md-4"
+                                    *ngFor="let data of tourSpecInclude">
+                                    <div class="feature-img">
+                                        <img src="assets/img/specification/dahil_icon.png" alt="">
+                                    </div>
+                                    <div class="featues-info">
+                                        <h6 innerHTML="{{data?.specification}}"> </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-sec specification-card ">
+                    <div class="review-header">
+                        <h4>Tura Dahil Olmayan</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="lisiting-featues">
+                            <div class="row">
+                                <div class="featureslist d-flex align-items-center col-lg-3 col-md-4"
+                                    *ngFor="let data of tourSpecNotInclude">
+                                    <div class="feature-img">
+                                        <img src="assets/img/specification/dahildegil_icon.png" alt="">
+                                    </div>
+                                    <div class="featues-info">
+                                        <h6 innerHTML="{{data?.specification}}"></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-sec listing-review">
+                    <div class="review-header">
+                        <h4>{{getcommentlistModel?.length}}<span class="me-2"> Yorum</span></h4>
+                    </div>
+                    <div class="review-card" *ngFor="let data of  getcommentlistModel">
+                        <div class="review-header-group">
+                            <div class="review-widget-header">
+
+                                <span class="review-widget-img">
+                                    <div class="review-profile">
+                                        <div class="review-img" style="    width: 60px;
+                                        height: 60px;
+                                        border-radius: 50%;
+                                        border: 3px solid #127384;
+                                        transition: 500ms all ease;">
+                                            <h6 style="margin-left: 38%;margin-top: 16px;">
+                                                {{data.fullName.substring(0,1)}}</h6>
+                                        </div>
+                                    </div>
+                                </span>
+                                <div class="review-design">
+                                    <h6>{{data?.fullName}}</h6>
+                                    <p>{{data?.creationDate | date:'dd/MM/yyyy' :'TR'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="color: black;">{{data?.comment}}</p>
+                    </div>
+                </div>
+                <div class="review-sec leave-reply-form">
+                    <div class="review-header">
+                        <h4>Yorum Bırakın</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="review-list">
+                            <ul>
+                                <li class="review-box feedbackbox mb-0">
+                                    <div class="review-details">
+                                        <form id="contactForm" [formGroup]="form" (ngSubmit)="submitForm()">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Ad-Soyad <span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" name="fullName"
+                                                            formControlName="fullName" id="name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>E-Posta Adresi <span class="text-danger">*</span></label>
+                                                        <input type="email" class="form-control" id="email" name="email"
+                                                            formControlName="email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label>Yorumunuz </label>
+                                                        <textarea rows="4" class="form-control" name="comment"
+                                                            id="comment" formControlName="comment"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="submit-btn">
+                                                <button class="btn btn-primary submit-review" type="submit"
+                                                    name="submit" id="submit">GÖNDER</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 theiaStickySidebar">
+                <div class="stickybar">
+                    <div class="review-sec mt-0">
+                        <div class="review-header">
+                            <h4>Rezervasyon Bilgileri</h4>
+                        </div>
+                        <div class="">
+
+                            <ul>
+                                <li class="column-group-main">
+                                    <div class="form-group">
+                                        <label>Son Rezervasyon Tarihi</label>
+                                        <div class="group-img">
+                                            <div class="sorting-select select-one">
+                                                <div class="list-rating">
+                                                    <span class="year" style="border-radius: 15px;display: inline-block;
+                                                        margin: 0 13px 0 0;
+                                                        padding: 10px 15px;
+                                                        background: #127384;
+                                                        color: #ffffff;">
+
+                                                        {{gettourModel?.finishDate | date:'dd/MM/yyyy' :'TR'}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="column-group-main">
+                                    <div class="form-group">
+                                        <label>İlk Hareket Noktası</label>
+                                        <div class="group-img">
+                                            <div class="sorting-select select-one">
+                                                <mat-select class="form-control select"
+                                                    placeholder="İlk Hareket Noktası Seçiniz">
+                                                    <mat-option *ngFor="let data of gettourModel?.tourDepartures"
+                                                        [value]="data?.departureRecord?.id">
+                                                        {{data?.departureRecord?.title}}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <form [formGroup]="counterForm">
+                                    <li class="column-group-main">
+                                        <div class="form-group">
+                                            <label>Yetişkin sayısı</label>
+                                            <div class="group-img" style="margin: auto;">
+
+                                                <ngx-input-counter (change)="calcTotalPrice($event,0)"
+                                                    [max]="gettourModel.quota"
+                                                    formControlName="parentCounter"></ngx-input-counter>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="column-group-main">
+                                        <div class="form-group">
+                                            <label>Çocuk/Öğrenci sayısı</label>
+                                            <div class="group-img">
+
+                                                <ngx-input-counter (change)="calcTotalPrice($event,1)"
+                                                    formControlName="childCounter"></ngx-input-counter>
+                                                <!-- <ngx-input-counter  [min]="0"  [max]="5"  (click)="calculateChildPrice(childCount+1)"  [(ngModel)]="childCount" >
+                                                    </ngx-input-counter> -->
+                                            </div>
+                                            <!-- {{counterForm.get('childCounter').value}} -->
+                                            <div *ngIf="counterForm.get('childCounter').value>0">
+                                                <div formArrayName="childPriceList">
+                                                    <div *ngFor="let person of childPriceList.controls; let i= index">
+                                                        <div [formGroupName]="i">
+                                                            <br>
+                                                            <select formControlName="tourPriceId" id="tourPriceId"
+                                                                style="background-color: #f1ecec;" class="form-control"
+                                                                (change)="calcTotalPrice($event,2)">
+                                                                <option value="0">Seçiniz</option>
+                                                                <option *ngFor="let price of allTourChildPriceses"
+                                                                    [value]="price.id">{{price.title}}
+                                                                    ({{price.price}}{{price.currency}})</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </form>
+                                <li class="column-group-main">
+                                    <div class="form-group m-0">
+                                        <label style="float:right;">Tur Ücreti: {{countedPrice}} €</label>
+                                    </div>
+                                </li>
+                                <li class="column-group-last">
+                                    <form class="">
+                                        <div class="form-group mb-0" *ngIf="gettourModel?.finishDate < DateTime">
+                                            <div class="search-btn" *ngIf="gettourModel?.finishDate < DateTime">
+                                                <button class="btn btn-dark check-available w-100" type="button">
+                                                    Rezervasyon kapandı</button>
+                                            </div>
+                                        </div>
+                                        <div class="search-btn" *ngIf="gettourModel?.finishDate >= DateTime">
+                                            <div class="search-btn"
+                                                *ngIf="gettourModel?.quota > 0 && gettourModel?.quota > 5">
+                                                <button (click)="setReservation()"
+                                                    class="btn btn-primary check-available w-100" type="button"> Şimdi
+                                                    Rezervasyon Yap</button>
+                                            </div>
+                                            <div class="search-btn"
+                                                *ngIf="gettourModel?.quota > 0 && gettourModel?.quota <= 5">
+                                                <button (click)="setReservation()"
+                                                    class="btn btn-warning check-available w-100" type="button"> Şimdi
+                                                    Rezervasyon Yap (Dolmak Üzere)</button>
+                                            </div>
+                                            <div class="search-btn" *ngIf="gettourModel?.quota < 1">
+                                                <button class="btn btn-danger check-available w-100" type="button">
+                                                    Kontenjan Doldu</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="review-sec extra-service mt-0">
+                        <div class="review-sec extra-service mb-0">
+                            <div class="review-header">
+                                <h4>Video</h4>
+                            </div>
+                            <div class="short-video" *ngIf="gettourModel?.youtubeLink">
+                                <youtube-player [videoId]="gettourModel?.youtubeLink"></youtube-player>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal custom-modal fade check-availability-modal" id="pages_edit" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="form-header text-start mb-0">
+                    <h4 class="mb-0 text-dark fw-bold">Availability Details</h4>
+                </div>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="align-center" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="available-for-ride">
+                            <p><i class="fa-regular fa-circle-check"></i>Chevrolet Camaro is available for a ride</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="row booking-info">
+                            <div class="col-md-4 pickup-address">
+                                <h5>Pickup</h5>
+                                <p>45, 4th Avanue Mark Street USA</p>
+                                <span>Date & time : 11 Jan 2023</span>
+                            </div>
+                            <div class="col-md-4 drop-address">
+                                <h5>Drop Off</h5>
+                                <p>78, 10th street Laplace USA</p>
+                                <span>Date & time : 11 Jan 2023</span>
+                            </div>
+                            <div class="col-md-4 booking-amount">
+                                <h5>Booking Amount</h5>
+                                <h6><span>$300 </span> /day</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="booking-info seat-select">
+                            <h6>Extra Service</h6>
+                            <label class="custom_check">
+                                <input type="checkbox" name="rememberme" class="rememberme">
+                                <span class="checkmark"></span>
+                                Baby Seat - <span class="ms-2">$10</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="booking-info pay-amount">
+                            <h6>Deposit Option</h6>
+                            <div class="radio radio-btn">
+                                <label>
+                                    <input type="radio" name="radio"> Pay Deposit
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio"> Full Amount
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <div class="booking-info service-tax">
+                            <ul>
+                                <li>Booking Price <span>$300</span></li>
+                                <li>Extra Service <span>$10</span></li>
+                                <li>Tax <span>$5</span></li>
+                            </ul>
+                        </div>
+                        <div class="grand-total">
+                            <h5>Grand Total</h5>
+                            <span>$315</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a [routerLink]="routes.bookingList" class="btn btn-back" data-bs-dismiss="modal">Go to Details<i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>

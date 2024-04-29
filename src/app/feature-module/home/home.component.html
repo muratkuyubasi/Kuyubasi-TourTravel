@@ -1,0 +1,416 @@
+<div class="wrapper">
+    <div id="main-div" style="position: fixed;
+    left: 66px;
+    bottom: 20px;
+    z-index: 999;">
+      <div id="main-button" class="wave open">
+        <i class="fas fa-comments fa-times"></i>
+      </div>
+      <!-- <button><i class="fas fa-phone-alt"></i>Bizi Arayın</button> -->
+      <a href="{{getyoutubeModel?.value}}"><i style="background-color: #f44336;" class="fab fa-youtube fi-icon"></i></a>
+	  <a href="{{getinstagramModel?.value}}"><i class="fab fa-instagram fi-icon"></i></a>
+      <a href="https://api.whatsapp.com/send?phone={{getwhatsAppModel?.name}}" ><i class="fab fa-whatsapp fi-icon" style="background-color: #43e560;"></i></a>
+      <!-- <a href="#"><i class="fa-brands fa-facebook-f fa-facebook fi-icon"></i></a> -->
+    </div>
+  </div>
+<div class="row">
+	<div class="popular-slider-group">
+		<div class="rental-deal-slider">
+			<owl-carousel-o [options]="recommendedCarOptions">
+				<ng-container *ngFor="let data of getannouncementModel">
+					<ng-template carouselSlide>
+						<div class="rental-car-item">
+							<div class="listing-item mb-0">
+								<div class="listing-img">
+									<a routerLink="{{data.link}}">
+										<img img [src]="path+data.fileUrl" alt="Image">
+									</a>
+								</div>
+							</div>
+						</div>
+					</ng-template>
+				</ng-container>
+			</owl-carousel-o>
+		</div>
+	</div>
+</div>
+<div class="section-search">
+	<div class="container">
+		<div class="search-box-banner">
+			<form>
+				<ul class="align-items-center">
+					<li class="column-group-main">
+						<div class="form-group">
+							<label style="color: #D72A2E;">Kategori</label>
+						</div>
+						<div class="form-group-wrapp">
+							<div class="sorting-select select-three w-100">
+								<select (change)="selectCategory($event)" class="form-control select" name="category"
+									*ngIf="getcategoryModel" placeholder="Kategori Seçiniz"
+									style="background: #FCFBFB;border: 1px solid #F4F4F4;box-shadow: none;border-radius: 10px 27px;margin: 0;font-size: 14px;font-weight: 400;color: #201F1D;padding: 13px 13px 13px 36px;">
+									<option selected disabled value="">Lütfen Seçiniz</option>
+									<option *ngFor="let data of getcategoryModel" [value]="data.categoryRecordId">
+										{{data.title}}
+									</option>
+								</select>
+							</div>
+						</div>
+					</li>
+					<li class="column-group-main">
+						<div class="form-group">
+							<label style="color: #D72A2E;">Gidilicek Yer</label>
+						</div>
+						<div class="form-group-wrapp">
+							<div class="sorting-select select-three w-100">
+								<mat-select class="form-control select" name="name" [(ngModel)]="tourResource.TourName"
+									*ngIf="gettourModel" placeholder="Tur Adı veya Bölge Girin"
+									style="background: #FCFBFB;border: 1px solid #F4F4F4;box-shadow: none;border-radius:10px 27px;margin: 0;font-size: 14px;font-weight: 400;color: #201F1D;padding: 13px 13px 13px 36px;">
+									<mat-option *ngFor="let data of gettourModel" [value]="data.tourRecord.title">
+										{{data.tourRecord.title}}
+									</mat-option>
+								</mat-select>
+							</div>
+						</div>
+					</li>
+					<li class="column-group-main">
+						<div class="form-group">
+							<label style="color: #D72A2E;">Dönem</label>
+						</div>
+						<div class="form-group-wrapp">
+							<div class="sorting-select select-three w-100">
+								<mat-select name="period" *ngIf="getperiodModel" [(ngModel)]="tourResource.PeriodName"
+									class="form-control select" placeholder="Dönem Seçiniz"
+									style="background: #FCFBFB;border: 1px solid #F4F4F4;box-shadow: none;border-radius: 10px 27px;margin: 0;font-size: 14px;font-weight: 400;color: #201F1D;padding: 13px 13px 13px 36px;">
+									<mat-option *ngFor="let data of getperiodModel" [value]="data.title">
+										{{data.title}}
+									</mat-option>
+								</mat-select>
+							</div>
+						</div>
+					</li>
+					<li class="column-group-last">
+						<div class="form-group">
+							<div class="search-btn">
+								<button class="btn search-button" type="submit" (click)="searchTour()"> <i
+										class="fa fa-search" aria-hidden="true"></i>Ara</button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</div>
+<section class="section popular-services popular-explore">
+	<div class="container">
+		<div class="section-heading" data-aos="fade-down">
+			<h2>Kategoriler</h2>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-lg-12" data-aos="fade-down">
+				<div class="listing-tabs-group">
+					<ul class="nav listing-buttons gap-3" data-bs-tabs="tabs" style="gap: 2rem!important;">
+						<li *ngFor="let data of getcategoryShowCaseModel">
+							<a class="" aria-current="true" data-bs-toggle="tab" (click)="changeFavoriTour(data.title)"
+								href="#favoriTour">
+								<span>
+									<img img [src]="path+data.image" style="width: 260%;" alt="Mazda">
+								</span>
+								{{data.title}}
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="tab-content">
+			<div class="tab-pane active" id="favoriTour">
+				<div class="row">
+					<div class="col-lg-4 col-md-6 col-12" data-aos="fade-down"
+						*ngFor="let data of getoverseastoursModel">
+						<div class="listing-item">
+							<div class="listing-img">
+								<a (click)="detail(data.id)">
+									<img img [src]="path+'tours/'+data.tourMedias[2]?.fileName" alt="Image"></a>
+								<div class="fav-item">
+									<span class="featured-text">{{data.regionRecord.title}}</span>
+								</div>
+							</div>
+							<div class="listing-content">
+								<div class="listing-features">
+									<h3 class="listing-title">
+										<a (click)="detail(data.id)">{{data.tourRecord.title}}</a>
+									</h3>
+									<div class="list-rating">
+									</div>
+								</div>
+								<div class="listing-details-group">
+									<ul>
+										<li>
+											<span><img src="assets/img/icons/kota.png" alt="Auto" style="width: 20px;"
+													title="Kota"></span>
+											<p>{{data.quota}}</p>
+										</li>
+										<li>
+											<span><img src="assets/img/icons/kisi_sayısı.png" alt="10 KM"
+													style="width: 20px;" title="Rezervasyon Olan Kişi Sayısı"></span>
+											<p>{{data.reservationTotalPerson}}</p>
+										</li>
+										<li>
+											<span><img src="assets/img/icons/gun_sayısı.png" alt="Petrol"
+													style="width: 20px;" title="Gün Sayısı"></span>
+											<p>{{data.dayCount}}</p>
+										</li>
+									</ul>
+									<ul>
+										<li>
+											<span><img src="assets/img/icons/baslangıc_tarihi.png" alt="Power"
+													style="width: 20px;" title="Başlangıç Tarihi"></span>
+											<p>{{data.startDate | date:'dd/MM/yyyy' :'TR'}}</p>
+										</li>
+
+										<li>
+											<span><img src="assets/img/icons/bitis_tarihi.png" alt="2018"
+													style="width: 20px;" title="Bitiş Tarihi"></span>
+											<p>{{data.endDate | date:'dd/MM/yyyy' :'TR'}}</p>
+										</li>
+									</ul>
+								</div>
+								<div class="listing-location-details">
+									<div class="listing-price">
+										<span><i class="feather icon-map-pin"></i></span>{{data.regionRecord.title}}
+									</div>
+									<div class="listing-price">
+										<h6>{{data.tourPrices[0].price}} €<span>{{data.heading}}</span></h6>
+									</div>
+								</div>
+								<div class="listing-button">
+									<a (click)="detail(data.id)" class="btn btn-order"><span><i
+												class="feather icon-calendar me-2"></i></span>Şimdi Rezervasyon Yap</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section services">
+	<div class="service-right">
+		<img src="assets/img/bg/service-right.svg" class="img-fluid" alt="services right">
+	</div>
+	<div class="container">
+		<div class="section-heading" data-aos="fade-down">
+			<h2>Hayallerine bir adım daha yaklaş...</h2>
+		</div>
+		<div class="services-work">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-12" data-aos="fade-down">
+					<div class="services-group">
+						<div class="services-icon border-secondary">
+							<img class="icon-img bg-secondary" src="assets/img/home-icons/choose-a-category.png"
+								alt="Choose Locations">
+						</div>
+						<div class="services-content">
+							<h3>Bir kategori seçin</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-12" data-aos="fade-down">
+					<div class="services-group">
+						<div class="services-icon border-warning">
+							<img class="icon-img bg-warning" src="assets/img/home-icons/find-what-you-want.png"
+								alt="Choose Locations">
+						</div>
+						<div class="services-content">
+							<h3>Ne İstediğinizi Bulun</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-12" data-aos="fade-down">
+					<div class="services-group">
+						<div class="services-icon border-warning">
+							<img class="icon-img bg-warning" src="assets/img/home-icons/and-discover.png"
+								alt="Choose Locations">
+						</div>
+						<div class="services-content">
+							<h3>Ve keşfedin...</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section popular-services" style="background-color: #344F6D;">
+	<div class="container">
+		<div class="section-heading" data-aos="fade-down">
+			<h2 style="color: #ffff;">Öne Çıkan Turlar</h2>
+		</div>
+		<div class="row">
+			<div class="popular-slider-group">
+				<div class="rental-deal-slider">
+					<owl-carousel-o [options]="recommendedCarOptionsv2">
+						<ng-container *ngFor="let data of gettourModel">
+							<ng-template carouselSlide *ngIf="data.showCase == true">
+								<div class="rental-car-item">
+									<div class="listing-item mb-0">
+										<div class="listing-img">
+											<a (click)="detail(data.id)">
+												<img img [src]="path+'tours/'+data.tourMedias[2]?.fileName" alt="Image">
+											</a>
+										</div>
+
+										<div class="listing-content">
+											<div class="listing-features">
+												<div class="fav-item-rental">
+													<span class="featured-text">{{data.tourPrices[0]?.price}} €</span>
+												</div>
+												<h3 class="listing-title">
+													<a (click)="detail(data.id)">{{data.tourRecord?.title}}</a>
+												</h3>
+											</div>
+											<div class="listing-details-group">
+												<ul>
+													<li>
+														<span><img src="assets/img/icons/kota.png" alt="Auto"
+																style="width: 20px;" title="Kota"></span>
+														<p>{{data.quota}}</p>
+													</li>
+													<li>
+														<span><img src="assets/img/icons/kisi_sayısı.png" alt="10 KM"
+																style="width: 20px;"
+																title="Rezervasyon Olan Kişi Sayısı"></span>
+														<p>{{data.reservationTotalPerson}}</p>
+													</li>
+													<li>
+														<span><img src="assets/img/icons/gun_sayısı.png" alt="Petrol"
+																style="width: 20px;" title="Gün Sayısı"></span>
+														<p>{{data.dayCount}}</p>
+													</li>
+												</ul>
+												<ul>
+													<li>
+														<span><img src="assets/img/icons/baslangıc_tarihi.png"
+																alt="Power" style="width: 20px;"
+																title="Başlangıç Tarihi"></span>
+														<p>{{data.startDate | date:'dd/MM/yyyy' :'TR'}}</p>
+													</li>
+
+													<li>
+														<span><img src="assets/img/icons/bitis_tarihi.png" alt="2018"
+																style="width: 20px;" title="Bitiş Tarihi"></span>
+														<p>{{data.endDate | date:'dd/MM/yyyy' :'TR'}}</p>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</ng-template>
+						</ng-container>
+					</owl-carousel-o>
+				</div>
+			</div>
+		</div>
+		<div class="view-all text-center" data-aos="fade-down">
+			<a [routerLink]="routes.listingGrid" class="btn btn-view d-inline-flex align-items-center">Tüm Turlar
+				<span><i class="feather icon-arrow-right ms-2"></i></span></a>
+		</div>
+	</div>
+</section>
+<section class="section why-choose popular-explore">
+	<div class="choose-left">
+		<img src="assets/img/bg/choose-left.png" class="img-fluid" alt="Why Choose Us">
+	</div>
+	<div class="container">
+		<div class="section-heading" data-aos="fade-down">
+			<h2>Neden Bizi Seçmelisiniz</h2>
+			<p style="text-align: justify;">Seyahat planımızın ilk aşamasından seyahat planımızın son aşamasına kadar
+				sizlere eşlik etmek ve misafirlerimize en güzel mutluluğu yaşatmak için organizasyonu sağlıyoruz.</p>
+		</div>
+		<div class="why-choose-group">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 col-12 d-flex" data-aos="fade-down">
+					<div class="card flex-fill">
+						<div class="card-body">
+							<div class="choose-img choose-black">
+								<img src="assets/img/icons/bx-user-check.svg" alt="">
+							</div>
+							<div class="choose-content">
+								<h4>Kolay ve Hızlı Rezervasyon</h4>
+								<p>Müşteri hizmetleri tamamen araştırılırken e iş test sürecini tamamen kesin. Kaliteli
+									küresel kapsamlı içerik.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-12 d-flex" data-aos="fade-down">
+					<div class="card flex-fill">
+						<div class="card-body">
+							<div class="choose-img choose-secondary">
+								<img src="assets/img/icons/bx-user-check.svg" alt="">
+							</div>
+							<div class="choose-content">
+								<h4>Birçok Tur İmkanı</h4>
+								<p>Platformlar arası kaynaklarla coşkulu manyetik girişimler. Test prosedürlerini etkili
+									bir şekilde dinamik olarak hedefleyin.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-12 d-flex" data-aos="fade-down">
+					<div class="card flex-fill">
+						<div class="card-body">
+							<div class="choose-img choose-primary">
+								<img src="assets/img/icons/bx-user-check.svg" alt="">
+							</div>
+							<div class="choose-content">
+								<h4>Müşteri memnuniyeti</h4>
+								<p>Küresel olarak kullanıcı merkezli yöntem etkileşimli. Benzersiz portallarda kurumsal
+									iş birliğinde sorunsuz bir şekilde devrim yaratın.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section about-testimonial testimonials-section">
+	<div class="container">
+		<div class="section-heading" data-aos="fade-down">
+			<h2>İnsanlar bizim hakkımızda ne söylüyorlar?</h2>
+		</div>
+		<div class="about-testimonials testimonial-group mb-0 owl-theme">
+			<owl-carousel-o [options]="testimonialOptions">
+				<ng-container *ngFor="let data of getcommentModel?.data">
+					<ng-template carouselSlide>
+						<div class="testimonial-item d-flex">
+							<div class="card flex-fill">
+								<div class="card-body">
+									<div class="quotes-head"></div>
+									<div class="review-box">
+										<div class="review-profile">
+											<div class="review-img">
+												<h6 style="margin-left: 38%;margin-top: 16px;">
+													{{data.fullName.substring(0,1)}}</h6>
+											</div>
+										</div>
+										<div class="review-details">
+											<h6>{{ data.fullName }}</h6>
+										</div>
+									</div>
+									<p>
+										{{ data.comment }}
+									</p>
+								</div>
+							</div>
+						</div>
+					</ng-template>
+				</ng-container>
+			</owl-carousel-o>
+		</div>
+	</div>
+</section>

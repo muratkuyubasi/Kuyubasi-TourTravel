@@ -1,0 +1,811 @@
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Değerler Eğitimi</ng-template>
+      <section class="section product-details" style="padding: 0px;">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+
+              <div class="review-sec extra-service mb-0">
+                <div class="review-header">
+                  <h4>Değerler Eğitimi</h4>
+                </div>
+                <div class="col-lg-12" data-aos="fade-down">
+                  <div class="about-content" style="margin: 0 0 0 0px;">
+                    <ul>
+                      <li>İaşe-ibate, intikaller, kültürel, sosyal ve gezi gibi faaliyetlerde ortaya çıkan masraflarda kullanılmak üzere öğrenci başına 670 Euro, müşavirlik hesabına <br> 
+                        Botschaftsrat f. Rel. Angelegenheiten.
+                        IBAN DE38 5023 4500 0160 4600 10
+                        yatırılmış olmalıdır.
+                        Web sayfasındaki kayıt formunu doldurmadan önce bu ödemenin yapılmış olması gerekmektedir.
+                      </li>
+                     
+                      <li style="text-align: justify;">Kayıt için acele ediniz. Her havalimanında 25 kız, 25 erkek
+                        öğrenciler için kontenjanımız vardır. İlk kayıt olan 25 kişi asil olarak, diğerleri yedek olarak
+                        değerlendirilecektir.</li>
+                      <li style="text-align: justify;">Öğrenci olan katılımcıların bilet bedelleri DITIB zekat
+                        fonundan ödenecektir. Bu nedenle kayıt formunda öğrenci olmayanların durumlarını beyan etmeleri
+                        önem arz etmektedir.</li>
+                      <!-- <li style="text-align: justify;">Kesin kayıt sonrasında katılımcıların tura katılımlarını iptal
+                        etmek istemeleri durumunda; otel ve firmaların uygulayacağı iptal ücreti (Stornogebühr)
+                        katılımcılardan tahsil edilir. Gezi tarihine 30 gün kala bildirilen iptallerde bilet ücreti
+                        iadesi yapılamamaktadır. Gezi tarihine 14 gün kala bildirilen iptallerde ise hiçbir ücret iadesi
+                        yapılamamaktadır.
+
+                      </li> -->
+                      <li style="text-align: justify;">Katılımcıların sağlık sigortaları kendilerine aittir. Sağlık,
+                        müze, vs imkanlardan yararlanabilmeleri için T.C. Kimlik Belgeleri veya Mavi Kartları olması
+                        önemlidir.
+                      </li>
+                      <li style="text-align: justify;">Otellerde iki, üç veya dört kişilik odalarda konaklama imkânı
+                        sunulmakta olup istisnai durumlarda odalardaki 3. ve 4. yataklar ilave yatak özelliğinde
+                        sunulabilmektedir.
+                        Belirtilen otel sınıfı aynı kalmakla birlikte bazı durumlarda otel değişiklikleri
+                        olabilmektedir.
+                        Bütün pasaport tipleri için seyahat tarihi itibariyle en az 6 ay geçerlilik süresi olması
+                        gerekmektedir. Geçerlilik süresi 6 aydan az olan pasaportla başvuru yapılması durumunda bütün
+                        sorumluluk katılımcıya aittir
+
+                      </li>
+                      <li style="text-align: justify;">Gümrüklü yurtdışı çıkışlarında kalkış günü ilgili havalimanında
+                        hareket saatinden en az 3 saat önce hazır bulunulması gerekmekte olup şirketimizin elinde
+                        olmayan durumlardan ötürü uçuşlarda yaşanabilecek gecikmelerde sorumluluk kabul edilmemektedir.
+                        İmkan bulunması halinde katılımcıların Check-in işlemlerini tur hareketinden 24 saat önce online
+                        yapmaları tavsiye edilmektedir.
+
+                      <li style="text-align: justify;">18 yaşından küçük katılımcıların ebeveynlerinden birinin veya her ikisinin tura katılmaması durumunda, katılımcı için muvafakatname hazırlanması ve seyahat sırasında kişinin yanında bulunması gerekmektedir.</li>
+                      <li style="text-align: justify;">Tur bölgesinde bulunmasına rağmen çeşitli sebeplerle yerel otoriteler tarafından ziyarete izin verilmeyen bölgelere gidilememesinden şirketimiz sorumlu değildir.
+                      </li>
+                      <li style="text-align: justify;">Katılımcıların sürekli kullanmaları gereken ilaç ve bu ilaçlarla ilgili raporları seyahat esnasında devamlı yanlarında bulundurmaları gerekmektedir.</li>
+                      <li style="text-align: justify;">Otel bilgilendirmeleri tur hareketinden 48 saat önce katılımcılara şirketimiz tarafından bilahare bildirilmektedir..</li>
+                      <li style="text-align: justify;">Katılımcıların kişisel bilgilerini hatalı bildirmelerinden kaynaklanabilecek uçak bileti iptali veya değişikliği gibi mali yükümlülükler ilgili kişi tarafından üstlenilecektir.
+                      </li>
+                      <!-- <li style="text-align: justify;">14.Katılımcıların sürekli kullanmaları gereken ilaç ve bu
+                        ilaçlarla ilgili raporları seyahat esnasında devamlı yanlarında bulundurmaları gerekmektedir.
+                      </li>
+                      <li style="text-align: justify;">15.Otel bilgilendirmeleri tur hareketinden 48 saat önce
+                        katılımcılara şirketimiz tarafından bilahare bildirilmektedir.</li>
+                      <li style="text-align: justify;">16.Katılımcıların kişisel bilgilerini hatalı bildirmelerinden
+                        kaynaklanabilecek uçak bileti iptali veya değişikliği gibi mali yükümlülükler ilgili kişi
+                        tarafından üstlenilecektir.</li> -->
+                      <!-- <li style="text-align: justify;">17.Almanya’da resmi olarak öğrenciyim,
+                        DİTİB Camiilerinde ders görüyorum/gençlik faaliyetlerine katılıyorum.
+                        Söz konusu eğitim programı için benim adıma DİTİB zekat fonundan ödeme yapılmasını kabul ediyorum.</li> -->
+
+                    </ul>
+                    <div>
+                      <br>
+                      <mat-radio-group aria-label="Select an option" formControlName="firstCtrl" required
+                        style="margin-left: -10px;">
+                        <!-- <mat-radio-button value="1" (change)="showDiffInvoice = !showDiffInvoice">1</mat-radio-button> -->
+                        <mat-radio-button value="1">Hizmet sağlayıcının duyuru ve bültenlerine iznimi özgür iradem ile
+                          onaylıyorum.</mat-radio-button>
+                        <!-- <button mat-button matStepperNext formControlName="firstCtrl" required>Hizmet sağlayıcının duyuru ve bültenlerine iznimi özgür iradem ile onaylıyorum.</button> -->
+                        <div>
+
+                          <button mat-button matStepperNext style="background-color: #D7292E;"
+                            >İleri</button>
+                        </div>
+
+
+                        <div class="col-sm-12">
+                          <div class="form-group">
+
+                          </div>
+                          <div class="row" *ngIf="showDiffInvoice">
+                            <div class="col-lg-6 col-md-6">
+                              <div class="form-group">
+                                <label>Ad</label>
+                                <input type="text" formControlName="InvoiceTitle" id="InvoiceTitle"
+                                  class="form-control">
+
+                              </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                              <div class="form-group">
+                                <label>Soyad</label>
+                                <input type="text" formControlName="InvoiceTitle" id="InvoiceTitle"
+                                  class="form-control">
+
+                              </div>
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup" label="Kayıt formunu dolduran kişi">
+    <div class="container">
+
+      <form [formGroup]="forms" (ngSubmit)="submitForm()">
+        <section class="section product-details">
+
+          <div class="container">
+            <div class="row">
+
+              <mat-form-field>
+                <mat-label>Kayıt Formunu Dolduran Kişi</mat-label>
+                <mat-select matNativeControl required (selectionChange)="changeStatus($event)"
+                  formControlName="personType" id="personType">
+                  <mat-option value="1">Öğrencinin annesiyim</mat-option>
+                  <mat-option value="2">Öğrencinin
+                    babasıyım</mat-option>
+                  <mat-option value="3">Cami din
+                    görevlisiyim</mat-option>
+                  <mat-option value="4">Öğrenci</mat-option>
+
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+          </div>
+        </section>
+        <div class="row" *ngIf="showDiffInv ==1">
+          <div class="about-content">
+            <h3 style="text-align:center;color: black;">YILDIZLI ALANLARIN DOLDURULMASI ZORUNLUDUR.</h3>
+            <br>
+          </div>
+          <div class="col-lg-12 col-md-6" style="text-align: center;">
+            <div class="form-group">
+              <label>Almanya’da resmi olarak öğrenciyim,
+                DITIB Camiilerinde ders görüyorum/gençlik faaliyetlerine katılıyorum.
+                Söz konusu eğitim programı için  (uçak bileti vb.) benim adıma DİTİB zekat fonundan ödeme yapılmasını kabul ediyorum.”
+                (Öğrenci değilseniz veya bu ödemeyi kabul etmiyorsanız bilet masrafını kendiniz karşılayarak programa katılabilirsiniz. Bunun için lütfen kayıt işlemine devam ediniz.)`<strong style="color: #ff0000;"> (*)</strong></label>
+              <div class="sorting-select select-three">
+                <ul>
+                  <mat-radio-group aria-label="Select an option" formControlName="isPrice" id="isPrice" name="isPrice"
+                    required>
+                    <mat-radio-button value="true">Evet</mat-radio-button>
+                    <mat-radio-button value="false">Hayır</mat-radio-button>
+                    <div>
+                    </div>
+                  </mat-radio-group>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin Adı Soyadı <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="text" formControlName="studentNameSurname" id="studentNameSurname" name="studentNameSurname"
+                class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin e-mail adresi <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="text" formControlName="studentMail" id="studentMail" class="form-control"
+                placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin doğum tarihi <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="date" formControlName="studentbirthdate" id="studentbirthdate" name="studentbirthdate"
+                class="form-control">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin cinsiyeti <strong style="color: #ff0000;"> (*)</strong></label>
+
+              <div class="sorting-select select-three">
+                <mat-select class="form-control select" placeholder="Yanıtınızı seçin" formControlName="studentGender"
+                  id="studentGender" name="studentGender">
+                  <mat-option value="0">
+                    Kız
+                  </mat-option>
+                  <mat-option value="1">
+                    Erkek
+                  </mat-option>
+
+                </mat-select>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin uyruğu <strong style="color: #ff0000;"> (*)</strong></label>
+
+              <div class="sorting-select select-three">
+                <mat-select class="form-control select" placeholder="Yanıtınızı seçin" formControlName="nationality"
+                  id="nationality" name="nationality">
+                  <mat-option value="1 ">
+                    Almanya Vatandaşı
+                  </mat-option>
+                  <mat-option value="2">
+                    Türkiye Vatandaşı
+                  </mat-option>
+                  <mat-option value="3">
+                    Fransa Vatandaşı
+                  </mat-option>
+                  <mat-option value="4">
+                    Diğer
+                  </mat-option>
+                </mat-select>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin pasaport numarası</label>
+              <input type="text" formControlName="studentPassportNumber" id="studentPassportNumber"
+                name="studentPassportNumber" class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin kimlik numarası <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="text" formControlName="studentIdentificationNumber" id="studentIdentificationNumber"
+                name="studentIdentificationNumber" class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+
+
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin ev adresi <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="text" formControlName="studentAddress" id="studentAddress" name="studentAddress"
+                class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin cep telefon numarası (Almanya) <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="text" formControlName="studentMobilePhoneNumberGermany" id="studentMobilePhoneNumberGermany"
+                name="studentMobilePhoneNumberGermany" class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+          <div class="col-lg- col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin cep telefon numarası (Türkiye)</label>
+              <input type="text" formControlName="studentMobilePhoneNumberTurkey" id="studentMobilePhoneNumberTurkey"
+                name="studentMobilePhoneNumberTurkey" class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Bağlı olduğunuz Din Hizmetleri Ataşeliği bölgesi <strong style="color: #ff0000;">
+                  (*)</strong></label>
+
+              <div class="sorting-select select-three">
+                <mat-select class="form-control select" placeholder="Yanıtınızı seçin" formControlName="stateId"
+                  id="stateId" name="stateId">
+                  <ng-container *ngFor="let data of stateModel.data">
+                    <mat-option (click)="mosqueByStateIdList(data.id)" value="{{data.id}}">{{data.name}}</mat-option>
+                  </ng-container>
+                  <!-- <mat-option>Essen</mat-option> -->
+                </mat-select>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6" *ngIf="showDiffInvoice1">
+            <div class="form-group">
+              <label>Lütfen caminizi seçiniz <strong style="color: #ff0000;"> (*)</strong></label>
+              <div class="sorting-select select-three">
+                <mat-select class="form-control select" placeholder="Yanıtınızı seçin" (selectionChange)="metot($event)"
+                  formControlName="mosqueId" id="mosqueId" name="mosqueId">
+                  <ng-container *ngFor="let data of mosqueModel?.data">
+                    <mat-option value="{{data.id}}">{{data.name}}</mat-option>
+                  </ng-container>
+                </mat-select>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-6" *ngIf="showDiffInvoice2">
+            <div class="form-group">
+              <label>Hangi havaalanından uçmak istersiniz? <strong style="color: #ff0000;"> (*)</strong></label>
+              <div class="sorting-select select-three">
+                <ul>
+                  <mat-radio-group aria-label="Select an option" formControlName="airport" id="airport" name="airport"
+                    required>
+                    <li><mat-radio-button value="1" (change)="showDiffInvoice = true">Köln veya
+                        Düsseldorf</mat-radio-button></li>
+                    <li><mat-radio-button value="2" (change)="showDiffInvoice = true">Frankfurt</mat-radio-button></li>
+                    <li><mat-radio-button value="3" (change)="showDiffInvoice = true">Stuttgart</mat-radio-button></li>
+                    <li><mat-radio-button value="4" (change)="showDiffInvoice = true">Hannover</mat-radio-button></li>
+                    <li><mat-radio-button value="5" (change)="showDiffInvoice = true">Basel</mat-radio-button></li>
+                    <div>
+                    </div>
+                  </mat-radio-group>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-6">
+            <div class="row" *ngIf="showDiffInvoice">
+              <div class="col-lg-4 col-md-6" style="margin:auto;">
+                <label>Pasaport Görseli (Türk Vatandaşıysanız) <strong style="color: #ff0000;"> (*)</strong></label>
+                <input id="file" type="file" class="form-control" (change)="onFileChange($event,1)">
+                <label>Örnek Görsel</label>
+                <img src="assets/img/ExamplePassport.jpeg" alt="Mazda" style="height: 185px;">
+              </div>
+              <div class="col-lg-4 col-md-6" style="margin:auto;">
+                <label>Türk veya Alman Kimliği Görseli <strong style="color: #ff0000;"> (*)</strong></label>
+                <input id="file" type="file" class="form-control" (change)="onFileChange($event,2)">
+                <label> Örnek Görsel</label>
+                <img src="assets/img/kimlik-kart.jpg" alt="Mazda" style="height: 185px;">
+              </div>
+              <div class="col-lg-4 col-md-6" style="margin:auto;">
+                <label>Ödeme Dekontu görseli <strong style="color: #ff0000;"> (*)</strong></label>
+                <input id="file" type="file" class="form-control" (change)="onFileChange($event,3)">
+                <label> Örnek Görsel</label>
+                <img src="assets/img/dekont.png" alt="Mazda" style="height: 185px;">
+              </div>
+              <br>
+            </div>
+            <br>
+          </div>
+          <br>
+          <div class="col-lg-12" style="text-align: center;">
+            <button class="btn contact-btn" type="submit" style="background-color: #D7292E;">KAYDI BİTİR</button>
+          </div>
+
+        </div>
+        <div class="row" *ngIf="showDiffInv ==2">
+          <div class="about-content">
+            <h3 style="text-align:center;color: black;">YILDIZLI ALANLARIN DOLDURULMASI ZORUNLUDUR.</h3>
+            <br>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Ad-Soyadı <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="text" formControlName="studentNameSurname" id="studentNameSurname" name="studentNameSurname"
+                class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>E-mail adresi <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="text" formControlName="studentMail" id="studentMail" class="form-control"
+                placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Doğum tarihi <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="date" formControlName="studentbirthdate" id="studentbirthdate" name="studentbirthdate"
+                class="form-control">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Cinsiyet <strong style="color: #ff0000;"> (*)</strong></label>
+
+              <div class="sorting-select select-three">
+                <mat-select class="form-control select" placeholder="Yanıtınızı seçin" formControlName="studentGender"
+                  id="studentGender" name="studentGender">
+                  <mat-option value="0">
+                    Kız
+                  </mat-option>
+                  <mat-option value="1">
+                    Erkek
+                  </mat-option>
+
+                </mat-select>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Uyruk <strong style="color: #ff0000;"> (*)</strong></label>
+
+              <div class="sorting-select select-three">
+                <mat-select class="form-control select" placeholder="Yanıtınızı seçin" formControlName="nationality"
+                  id="nationality" name="nationality">
+                  <mat-option value="1 ">
+                    Almanya Vatandaşı
+                  </mat-option>
+                  <mat-option value="2">
+                    Türkiye Vatandaşı
+                  </mat-option>
+                  <mat-option value="3">
+                    Fransa Vatandaşı
+                  </mat-option>
+                  <mat-option value="4">
+                    Diğer
+                  </mat-option>
+                </mat-select>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Pasaport numarası</label>
+              <input type="text" formControlName="studentPassportNumber" id="studentPassportNumber"
+                name="studentPassportNumber" class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Kimlik numarası <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="text" formControlName="studentIdentificationNumber" id="studentIdentificationNumber"
+                name="studentIdentificationNumber" class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+
+
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Ev adresi <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="text" formControlName="studentAddress" id="studentAddress" name="studentAddress"
+                class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Cep telefon numarası (Almanya) <strong style="color: #ff0000;"> (*)</strong></label>
+              <input type="text" formControlName="studentMobilePhoneNumberGermany" id="studentMobilePhoneNumberGermany"
+                name="studentMobilePhoneNumberGermany" class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+          <div class="col-lg- col-md-6">
+            <div class="form-group">
+              <label>Cep telefon numarası (Türkiye)</label>
+              <input type="text" formControlName="studentMobilePhoneNumberTurkey" id="studentMobilePhoneNumberTurkey"
+                name="studentMobilePhoneNumberTurkey" class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Bağlı olduğunuz Din Hizmetleri Ataşeliği bölgesi <strong style="color: #ff0000;">
+                  (*)</strong></label>
+
+              <div class="sorting-select select-three">
+                <mat-select class="form-control select" placeholder="Yanıtınızı seçin" formControlName="stateId"
+                  id="stateId" name="stateId">
+                  <ng-container *ngFor="let data of stateModel.data">
+                    <mat-option (click)="mosqueByStateIdList(data.id)" value="{{data.id}}">{{data.name}}</mat-option>
+                  </ng-container>
+                  <!-- <mat-option>Essen</mat-option> -->
+                </mat-select>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6" *ngIf="showDiffInvoice1">
+            <div class="form-group">
+              <label>Lütfen caminizi seçiniz <strong style="color: #ff0000;"> (*)</strong></label>
+              <div class="sorting-select select-three">
+                <mat-select class="form-control select" placeholder="Yanıtınızı seçin" (selectionChange)="metot($event)"
+                  formControlName="mosqueId" id="mosqueId" name="mosqueId">
+                  <ng-container *ngFor="let data of mosqueModel?.data">
+                    <mat-option value="{{data.id}}">{{data.name}}</mat-option>
+                  </ng-container>
+                </mat-select>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-6" *ngIf="showDiffInvoice2">
+            <div class="form-group">
+              <label>Hangi havaalanından uçmak istersiniz? <strong style="color: #ff0000;"> (*)</strong></label>
+              <div class="sorting-select select-three">
+                <ul>
+                  <mat-radio-group aria-label="Select an option" formControlName="airport" id="airport" name="airport"
+                    required>
+                    <li><mat-radio-button value="1" (change)="showDiffInvoice = true">Köln veya
+                        Düsseldorf</mat-radio-button></li>
+                    <li><mat-radio-button value="2" (change)="showDiffInvoice = true">Frankfurt</mat-radio-button></li>
+                    <li><mat-radio-button value="3" (change)="showDiffInvoice = true">Stuttgart</mat-radio-button></li>
+                    <li><mat-radio-button value="4" (change)="showDiffInvoice = true">Hannover</mat-radio-button></li>
+                    <li><mat-radio-button value="5" (change)="showDiffInvoice = true">Basel</mat-radio-button></li>
+                    <div>
+                    </div>
+                  </mat-radio-group>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-6">
+            <div class="row" *ngIf="showDiffInvoice">
+              <div class="col-lg-4 col-md-6" style="margin:auto;">
+                <label>Pasaport Görseli (Türk Vatandaşıysanız) <strong style="color: #ff0000;"> (*)</strong></label>
+                <input id="file" type="file" class="form-control" (change)="onFileChange($event,1)">
+                <label>Örnek Görsel</label>
+                <img src="assets/img/ExamplePassport.jpeg" alt="Mazda" style="height: 185px;">
+              </div>
+              <div class="col-lg-4 col-md-6" style="margin:auto;">
+                <label>Türk Kimliği Görseli/Alman Vatandaşları için Ausweiss Görseli <strong style="color: #ff0000;">
+                    (*)</strong></label>
+                <input id="file" type="file" class="form-control" (change)="onFileChange($event,2)">
+                <label> Örnek Görsel</label>
+                <img src="assets/img/kimlik-kart.jpg" alt="Mazda" style="height: 185px;">
+              </div>
+              <div class="col-lg-4 col-md-6" style="margin:auto;">
+                <label>Ödeme Dekontu görseli <strong style="color: #ff0000;"> (*)</strong></label>
+                <input id="file" type="file" class="form-control" (change)="onFileChange($event,3)">
+                <label> Örnek Görsel</label>
+                <img src="assets/img/dekont.png" alt="Mazda" style="height: 185px;">
+              </div>
+              <br>
+            </div>
+            <br>
+          </div>
+          <br>
+          <button class="btn contact-btn" type="submit">Mesajı Gönder</button>
+
+        </div>
+        <!-- <div class="row" *ngIf="showDiffInvoice5">
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Havale yapan hesap sahibinin adı ve soyadı</label>
+              <input type="text" formControlName="transferFullName" id="transferFullName" name="transferFullName" class="form-control">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Lütfen havale tarihini giriniz</label>
+              <input type="text" formControlName="tranferDate" id="tranferDate" name="tranferDate" class="form-control">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Lütfen havale dekontundaki havale işlem numarasını giriniz</label>
+              <input type="text" formControlName="transferTransactionNumber" id="transferTransactionNumber" name="transferTransactionNumber" class="form-control">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin Babasının Adı Soyadı</label>
+              <input type="date" formControlName="studentFatherNameSurname" id="studentFatherNameSurname" name="studentFatherNameSurname" class="form-control">
+
+            </div>
+          </div>
+         
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin Babasının Telefonu</label>
+              <input type="text" formControlName="studentFatherPhone" id="studentFatherPhone" name="studentFatherPhone" class="form-control">
+
+            </div>
+          </div>
+          
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin Annesinin Adı Soyadı</label>
+              <input type="text" formControlName="studentMotherNameSurname" id="studentMotherNameSurname" name="studentMotherNameSurname" class="form-control">
+
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin Annesinin Telefonu</label>
+              <input type="text" formControlName="studentMotherPhone" id="studentMotherPhone" name="studentMotherPhone" class="form-control">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Caminizin din görevlisinin adı ve soyadı</label>
+              <input type="text" formControlName="mosqueReligiousOfficialFullName" id="mosqueReligiousOfficialFullName" name="mosqueReligiousOfficialFullName" class="form-control">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Caminizin din görevlisinin telefon numarası</label>
+              <input type="text" formControlName="mosqueReligiousOfficialPhone" id="mosqueReligiousOfficialPhone" name="mosqueReligiousOfficialPhone" class="form-control">
+
+            </div>
+          </div>
+          <button class="btn contact-btn" type="submit">Mesajı Gönder</button>					
+
+        </div>
+        <div class="row" *ngIf="showDiffInvoice4">
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin Babasının Adı Soyadı</label>
+              <input type="text" formControlName="studentFatherNameSurname" id="studentFatherNameSurname" name="studentFatherNameSurname" class="form-control" placeholder="Yanıtınızı girin">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin Babasının Telefonu</label>
+              <input type="text" formControlName="studentFatherPhone" id="studentFatherPhone" name="studentFatherPhone" class="form-control">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin Annesinin Adı Soyadı</label>
+              <input type="text" formControlName="studentMotherNameSurname" id="studentMotherNameSurname" name="studentMotherNameSurname" class="form-control">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Öğrencinin Annesinin Telefonu</label>
+              <input type="text" formControlName="studentMotherPhone" id="studentMotherPhone" name="studentMotherPhone" class="form-control">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Caminizin din görevlisinin adı ve soyadı</label>
+              <input type="text" formControlName="mosqueReligiousOfficialFullName" id="mosqueReligiousOfficialFullName" name="mosqueReligiousOfficialFullName" class="form-control">
+            </div>
+          </div>
+          <button class="btn contact-btn" type="submit">Mesajı Gönder</button>					
+
+        </div> -->
+
+        <!-- <mat-form-field>
+      
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field> -->
+
+      </form>
+      <br>
+      <div>
+        <button mat-button matStepperPrevious style="background-color: #D7292E;">Geri</button>
+        <!-- <button mat-button matStepperNext>İleri</button> -->
+
+      </div>
+    </div>
+
+  </mat-step>
+  <!-- <mat-step>
+    <ng-template matStepLabel>Finish</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+
+    </div>
+  </mat-step> -->
+</mat-stepper>
+
+
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-radio-group aria-label="Select an option" formControlName="firstCtrl" required>
+        <mat-radio-button value="1" (change)="showDiffInvoice = !showDiffInvoice">1</mat-radio-button>
+        <mat-radio-button value="2">2</mat-radio-button>
+
+        <div class="col-sm-12">   
+          <div class="form-group">
+            
+          </div>
+          <div class="row" *ngIf="showDiffInvoice">
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Ad</label>
+                <input type="text" formControlName="InvoiceTitle" id="InvoiceTitle" class="form-control">
+                
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Soyad</label>
+                <input type="text" formControlName="InvoiceTitle" id="InvoiceTitle" class="form-control">
+               
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </mat-radio-group>
+      
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-radio-group aria-label="Select an option" formControlName="firstCtrl" required>
+        <mat-radio-button value="1" (change)="showDiffInvoice = !showDiffInvoice">1</mat-radio-button>
+        <mat-radio-button value="2">2</mat-radio-button>
+
+        <div class="col-sm-12">   
+          <div class="form-group">
+            
+          </div>
+          <div class="row" *ngIf="showDiffInvoice">
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Ad</label>
+                <input type="text" formControlName="InvoiceTitle" id="InvoiceTitle" class="form-control">
+                
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Soyad</label>
+                <input type="text" formControlName="InvoiceTitle" id="InvoiceTitle" class="form-control">
+               
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </mat-radio-group>
+      
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper> -->

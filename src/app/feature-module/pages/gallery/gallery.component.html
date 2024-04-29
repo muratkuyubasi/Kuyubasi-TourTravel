@@ -1,0 +1,32 @@
+<!-- Breadscrumb Section -->
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row align-items-center text-center">
+            <div class="col-md-12 col-12">
+                <h2 class="breadcrumb-title">Gallery </h2>
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="routes.home">Home</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                    </ol>
+                </nav>							
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section gallery-section"> 
+    <div class="container">
+        <div class="row">
+            <ng-container *ngFor="let image of gallery; let i = index">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-aos="fade-down" *ngIf="i < 12">
+                <div class="gallery-widget">
+                    <a href="javascript:void(0)" data-fancybox="gallery2">
+                        <img class="img-fluid" alt="Image" [src]="image.src" (click)="open(i, gallery)">
+                    </a>
+                </div>	
+                </div>
+            </ng-container>				
+        </div> 
+    </div> 
+</div> 					  

@@ -1,0 +1,36 @@
+<div class="error-box">
+    <img src="assets/img/comingsoon.png" class="img-fluid" alt="Coming Soon">
+    <h2 class="coming-soon">Coming Soon</h2>
+    <p>We'll be here soon with our new awesome site, subscribe to be notified.</p>
+    <h6>We'll Be Back Shortly</h6>
+    <div class="footer-social-links">
+        <ul class="nav">						
+            <li>
+                <a [routerLink]="routes.comingSoon" target="_blank"><i class="feather icon-instagram hi-icon"></i></a>
+            </li>						
+            <li>
+                <a [routerLink]="routes.comingSoon" target="_blank"><i class="feather icon-twitter hi-icon"></i> </a>
+            </li>						
+            <li>
+                <a [routerLink]="routes.comingSoon" target="_blank"><i class="feather icon-youtube hi-icon"></i></a>
+            </li>
+            <li>
+                <a [routerLink]="routes.comingSoon" target="_blank"><i class="feather icon-facebook hi-icon"></i></a>
+            </li>
+            <li>
+                <a [routerLink]="routes.comingSoon" target="_blank"><i class="feather icon-linkedin hi-icon"></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="serve-form">
+        <form action="#">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Email Address">
+                <button type="submit" class="btn button-notific btn-secondary d-flex align-items-center">
+                    <span>Notify me</span>
+                </button>
+            </div>
+        </form>
+    </div>
+    <a [routerLink]="routes.home" class="btn-maintance btn btn-primary">Back to Home<span class="ms-2"><i class="fe feather icon-arrow-right" aria-hidden="true"></i></span></a>
+</div>

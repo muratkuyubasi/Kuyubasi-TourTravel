@@ -1,0 +1,96 @@
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row align-items-center text-center">
+            <div class="col-md-12 col-12">
+                <h2 class="breadcrumb-title">Bize Ulaşın</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-info-area">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.1"> 
+                    <div class="single-contact-info flex-fill">
+                        <span><i class="feather icon-phone-call"></i></span>
+                        <h3>Telefon</h3>
+                        <a href="tel:{{getsettingsphoneModel.name}}">{{getsettingsphoneModel?.value}}</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.2"> 
+                    <div class="single-contact-info flex-fill">
+                        <span><i class="feather icon-mail"></i></span>
+                        <h3>E-Posta</h3>
+                        <a href="mailto:{{getsettingsggmailModel?.value}}">{{getsettingsggmailModel?.value}}</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.3"> 
+                    <div class="single-contact-info flex-fill">
+                        <span><i class="feather icon-map-pin"></i></span>
+                        <h3>Konum</h3>
+                        <a href="javascript:void(0);">Subbelrather Str. 17,<br> 50823 Köln</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.4"> 
+                    <div class="single-contact-info flex-fill">
+                        <span><i style="background-color: #43e560;"><img src="assets/img/whatsapp-ıcon.png" class="img-fluid" alt="Contact" style="width: 45%;"></i></span>
+                        <h3>WhatsApp</h3>
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone={{getwhatsAppModel?.name}}">{{getwhatsAppModel?.value}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-info-area" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.5">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="assets/img/ZSU_iletisim_614X592.jpg" class="img-fluid" alt="Contact">
+                </div>
+                <div class="col-lg-6">
+                    <form id="contactForm" [formGroup]="form"  (ngSubmit)="submitForm()">
+                        <div class="row">
+                            <h1>Sorularınız, önerileriniz veya talepleriniz için bizimle iletişime geçebilirsiniz... </h1>
+                            <div class="col-md-12"> 
+                                <div class="form-group">
+                                    <label>Adınız <span class="text-danger">*</span></label>
+                                    <input name="firstName" formControlName="firstName" id="name"   type="text" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-12"> 
+                                <div class="form-group">
+                                    <label>Soyadınız <span class="text-danger">*</span></label>
+                                    <input type="text"  name="lastName" formControlName="lastName" id="name" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-12"> 
+                                <div class="form-group">
+                                    <label>Mail adresiniz <span class="text-danger">*</span></label>
+                                    <input type="text"  id="email" name="email" formControlName="email"  class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-12"> 
+                                <div class="form-group">
+                                    <label>Telefon numaranız <span class="text-danger">*</span></label>
+                                    <input type="text" name="phone" id="phone" formControlName="phone" class="form-control" placeholder="">
+                                </div>
+                            </div>	
+                            <div class="col-md-12"> 
+                                <div class="form-group">
+                                    <label>Konu <span class="text-danger">*</span></label>
+                                    <input type="text" name="subject" formControlName="subject" id="name" class="form-control" placeholder="">
+                                </div>
+                            </div>	
+                            <div class="col-md-12"> 
+                                <div class="form-group">
+                                    <label>Mesajınız <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" rows="4" cols="50" placeholder="" name="message" id="message" formControlName="message">  </textarea>
+                                </div>
+                            </div>
+                        </div>		
+                        <button class="btn contact-btn" type="submit">Mesajı Gönder</button>					
+                    </form>
+                </div>
+            </div>
+        </div>	
+    </div>	
+</section>	
